@@ -5,9 +5,9 @@
       <configuration>
         <datasource-map>
           <unit-entry name="hibernate.cfg.xml" />
+          <unit-entry name="sessionFactory" />
         </datasource-map>
         <naming-strategy-map />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/com/czw/entity/Admin.hbm.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
       </configuration>
     </facet>

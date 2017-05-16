@@ -4,11 +4,15 @@ package com.czw.entity;
  * @brief 管理员实体类
  */
 public class Admin {
-    protected long adminID;
-    protected String adminName;
-    protected String adminPassword;
-    protected String adminPhone;
-    protected String adminEmail;
+    private long adminID;
+    private String adminName;
+    private String adminPassword;
+    private String adminPhone;
+    private String adminEmail;
+
+    public Admin(){
+
+    }
 
     public Admin(long adminID,String adminName, String adminPassword,
                  String adminPhone,String adminEmail){

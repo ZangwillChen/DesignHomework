@@ -9,19 +9,19 @@
             <generator class="native" />
         </id>
         <property name="adminName" type="java.lang.String"
-                  not-null="true">
+                  not-null="true" length="50">
             <column name="a_name" />
         </property>
         <property name="adminPassword" type="java.lang.String"
-                  not-null="true" >
+                  not-null="true" length="50" >
             <column name="a_password" />
         </property>
         <property name="adminPhone" type="java.lang.String"
-                  not-null="false">
+                  not-null="false" length="50">
             <column name="a_phone" />
         </property>
         <property name="adminEmail" type="java.lang.String"
-                  not-null="false">
+                  not-null="false" length="50">
             <column name="a_email" />
         </property>
 
