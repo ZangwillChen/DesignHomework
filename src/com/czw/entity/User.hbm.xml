@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.czw.entity">
+    <class name="com.czw.entity.User" table="tb_user">
+        <id name="userID" type="java.lang.Long">
+            <column name="u_id"/>
+            <generator class="native"/>
+        </id>
+        <property name="userName" type="java.lang.String" length="50"
+        not-null="true">
+            <column name="u_name"/>
+        </property>
+        <property name="userPassword" type="java.lang.String" length="50"
+        not-null="true">
+            <column name="u_password"/>
+        </property>
+        <property name="userPhone" type="java.lang.String" length="50"
+                  not-null="true">
+            <column name="u_phone"/>
+        </property>
+        <property name="userEmail" type="java.lang.String" length="50"
+                  not-null="false">
+            <column name="u_email"/>
+        </property>
+        <property name="reserveInf" type="java.lang.String" length="200"
+                  not-null="false">
+            <column name="u_res"/>
+        </property>
+
+        <!-- 故User与Role 为多对一关系映射，Role与User为一对多关系映射，在这种关系中，User 表中的一行可以匹配 Role 表中的多行，
+        但是 Role 表中的一行只能匹配 User 表中的一行 -->
+        <many-to-one name="userType" class="com.czw.entity.Role">
+            <column name="u_type"/>
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>
