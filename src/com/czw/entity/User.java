@@ -31,4 +31,60 @@ public class User {
         this.ReserveInf = ReserveInf;
         this.userType = userType;
     }
+
+    public long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(long userID) {
+        this.userID = userID;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getReserveInf() {
+        return ReserveInf;
+    }
+
+    public void setReserveInf(String reserveInf) {
+        ReserveInf = reserveInf;
+    }
+
+    public Role getUserType() {
+        return userType;
+    }
+
+    public void setUserType(Role userType) {
+        this.userType = userType;
+    }
 }
