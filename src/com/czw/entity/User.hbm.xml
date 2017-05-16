@@ -34,6 +34,5 @@
         <many-to-one name="userType" class="com.czw.entity.Role">
             <column name="u_type"/>
         </many-to-one>
-
     </class>
 </hibernate-mapping>
