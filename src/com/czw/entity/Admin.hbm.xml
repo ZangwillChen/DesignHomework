@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.czw.entity">
+    <class name="com.czw.entity.Admin" table="tb_admin">
+        <id name="adminID" type="java.lang.Long">
+            <column name="a_id" />
+            <generator class="native" />
+        </id>
+        <property name="adminName" type="java.lang.String"
+                  not-null="true">
+            <column name="a_name" />
+        </property>
+        <property name="adminPassword" type="java.lang.String"
+                  not-null="true" >
+            <column name="a_password" />
+        </property>
+        <property name="adminPhone" type="java.lang.String"
+                  not-null="false">
+            <column name="a_phone" />
+        </property>
+        <property name="adminEmail" type="java.lang.String"
+                  not-null="false">
+            <column name="a_email" />
+        </property>
+
+    </class>
+</hibernate-mapping>

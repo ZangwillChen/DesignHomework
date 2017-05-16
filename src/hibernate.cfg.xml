@@ -13,7 +13,30 @@
             com.mysql.jdbc.Driver
         </property>
         <!-- 数据库连接信息 -->
-        <property name="hibernate.connection.url">jdbc:mysql:</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_czwdatabases</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">zangwill</property>
+
+        <!-- 打印sql语句 -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="current_session_context_class">thread</property>
+
+        <!-- 不格式化SQL语句 -->
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- 为Session指定一个自定义策略 -->
+        <property name="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext
+        </property>
+
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.timeout">120</property>
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <property name="hibernate.c3p0.idle_test_period">120</property>
+        <property name="hibernate.c3p0.acquire_increment">2</property>
+        <property name="hibernate.c3p0.validate">true</property>
+
 
     </session-factory>
 </hibernate-configuration>
