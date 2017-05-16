@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="jgroups-3.0.9.Final">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jgroups-3.0.9.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.hamcrest.core_1.1.0.v20090501071000.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/proxool-0.8.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/rhq-pluginAnnotations-3.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-log4j12-1.7.21.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-log4j12-1.7.21-sources.jar!/" />
+    </SOURCES>
+    <excluded>
+      <root url="jar://$PROJECT_DIR$/lib/stax2-api-3.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts2-spring-plugin-2.3.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/woodstox-core-asl-4.1.1.jar!/" />
+    </excluded>
+  </library>
+</component>
