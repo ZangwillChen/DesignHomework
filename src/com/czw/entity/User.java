@@ -17,7 +17,7 @@ public class User {
     private String ReserveInf;
     private Role userType;
 
-    public  User(){
+    public User(){
 
     }
 

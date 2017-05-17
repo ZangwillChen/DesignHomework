@@ -13,6 +13,10 @@ public class Role {
     private int permission;
     private Set<User> users = new HashSet<>();
 
+    public Role(){
+
+    }
+
     public Role(long roleID,String roleName,int permission,Set<User> users){
         this.roleID = roleID;
         this.roleName = roleName;
