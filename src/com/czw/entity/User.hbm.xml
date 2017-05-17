@@ -29,7 +29,7 @@
             <column name="u_res"/>
         </property>
 
-        <!-- 故User与Role 为多对一关系映射，Role与User为一对多关系映射，在这种关系中，User 表中的一行可以匹配 Role 表中的多行，
+        <!-- User与Role 为多对一关系映射，Role与User为一对多关系映射，在这种关系中，User 表中的一行可以匹配 Role 表中的多行，
         但是 Role 表中的一行只能匹配 User 表中的一行 -->
         <many-to-one name="userType" class="com.czw.entity.Role">
             <column name="u_type"/>

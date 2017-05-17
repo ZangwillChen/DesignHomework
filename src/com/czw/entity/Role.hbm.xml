@@ -4,6 +4,22 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.czw.entity">
     <class name="com.czw.entity.Role" table="tb_role">
-        <id
+        <id name="roleID" type="java.lang.Long" >
+            <column name="r_id" />
+            <generator class="native"/>
+        </id>
+        <property name="roleName" type="java.lang.String" not-null="true"
+                  length="50">
+            <column name="r_name" />
+        </property>
+
+        <property name="permission" type="int" not-null="true" length="50">
+            <column name="permison"/>
+        </property>
+        
+        <set name="users" >
+            <key column="u_id"></key>
+            <one-to-many class="com.czw.entity.User"/>
+        </set>
     </class>
 </hibernate-mapping>
