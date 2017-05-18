@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.czw.entity">
+    <class name="com.czw.entity.Room" table="tb_room">
+        <id name="roomID" type="java.lang.Long" >
+            <column name="room_id" />
+            <generator class="native"/>
+        </id>
+
+        <property name="roomName" type="java.lang.String" length="50"
+                  not-null="true">
+            <column name="room_name"/>
+        </property>
+
+        <property name="timeTable" type="java.lang.String" length="100"
+                  not-null="true">
+            <column name="timetabl"/>
+        </property>
+
+        <property name="roomtype" type="int" length="10"
+                  not-null="true">
+            <column name="room_type"/>
+        </property>
+
+        <set name="reserveInfos" table="tb_revinfo">
+            <key>
+                <column name="revID"/>
+            </key>
+            <one-to-many class="com.czw.entity.ReserveInfo"/>
+        </set>
+
+    </class>
+</hibernate-mapping>
