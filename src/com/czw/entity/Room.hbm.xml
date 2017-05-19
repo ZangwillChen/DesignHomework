@@ -6,7 +6,7 @@
     <class name="com.czw.entity.Room" table="tb_room">
         <id name="roomID" type="java.lang.Long" >
             <column name="room_id" />
-            <generator class="native"/>
+            <generator class="increment"/>
         </id>
 
         <property name="roomName" type="java.lang.String" length="50"
@@ -24,12 +24,11 @@
             <column name="room_type"/>
         </property>
 
-        <set name="reserveInfos" table="tb_revinfo">
-            <key>
-                <column name="revID"/>
-            </key>
-            <one-to-many class="com.czw.entity.ReserveInfo"/>
-        </set>
+        <component name="reserveInfos" class="com.czw.entity.ReserveInfo">
+            <property name="revID"></property>
+            <property name="revDate"></property>
+            <property name="reserveStatus"></property>
+        </component>
 
     </class>
 </hibernate-mapping>

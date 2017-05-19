@@ -9,6 +9,10 @@ public class RoomTimeTable {
     private Room room;
     private String roomStatus;
 
+    public RoomTimeTable(){
+
+    }
+
     public RoomTimeTable(Room room,String roomStatus){
         this.room = room;
         this.roomStatus = roomStatus;

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
  * Created by chenzhaowen on 2017/5/16.
  * @brief 基础Action类
  */
-abstract class BaseAction extends ActionSupport implements ServletRequestAware,ServletResponseAware,ServletContextAware {
+public class BaseAction extends ActionSupport implements ServletRequestAware,ServletResponseAware,ServletContextAware {
 
     private static final long serialVersionUID = 1L;
 

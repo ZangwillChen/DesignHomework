@@ -9,6 +9,10 @@ public class ReserveInfo {
     private String revDate;
     private String reserveStatus;
 
+    public ReserveInfo(){
+
+    }
+
     public ReserveInfo(long revID,String revDate,String reserveStatus){
         this.revID = revID;
         this.revDate = revDate;

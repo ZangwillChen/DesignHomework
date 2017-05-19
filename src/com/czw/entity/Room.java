@@ -8,14 +8,18 @@ import java.util.Set;
  */
 public class Room {
 
-    long roomID;
-    String roomName;
-    String timeTable;
-    int roomtype;
-    Set<ReserveInfo> reserveInfos = new HashSet<>();        //改为Has-a关系
+    private long roomID;
+    private String roomName;
+    private String timeTable;
+    private int roomtype;
+    private ReserveInfo reserveInfos ;
+
+    public Room(){
+
+    }
 
     public Room(long roomID,String roomName,String timeTable,
-                int roomtype,Set<ReserveInfo> reserveInfos){
+                int roomtype,ReserveInfo reserveInfos){
         this.roomID = roomID;
         this.roomName = roomName;
         this.timeTable = timeTable;
@@ -55,11 +59,11 @@ public class Room {
         this.timeTable = timeTable;
     }
 
-    public Set<ReserveInfo> getReserveInfos() {
+    public ReserveInfo getReserveInfos() {
         return reserveInfos;
     }
 
-    public void setReserveInfos(Set<ReserveInfo> reserveInfos) {
+    public void setReserveInfos(ReserveInfo reserveInfos) {
         this.reserveInfos = reserveInfos;
     }
 }
