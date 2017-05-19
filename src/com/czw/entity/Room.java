@@ -12,7 +12,7 @@ public class Room {
     String roomName;
     String timeTable;
     int roomtype;
-    Set<ReserveInfo> reserveInfos = new HashSet<>();
+    Set<ReserveInfo> reserveInfos = new HashSet<>();        //改为Has-a关系
 
     public Room(long roomID,String roomName,String timeTable,
                 int roomtype,Set<ReserveInfo> reserveInfos){
