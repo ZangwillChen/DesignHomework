@@ -6,6 +6,7 @@ package com.czw.entity;
  */
 public class RoomTimeTable {
 
+    private long tableID;
     private Room room;
     private String roomStatus;
 
@@ -13,9 +14,18 @@ public class RoomTimeTable {
 
     }
 
-    public RoomTimeTable(Room room,String roomStatus){
+    public RoomTimeTable( long tableID,Room room,String roomStatus){
+        this.tableID = tableID;
         this.room = room;
         this.roomStatus = roomStatus;
+    }
+
+    public long getTableID() {
+        return tableID;
+    }
+
+    public void setTableID(long tableID) {
+        this.tableID = tableID;
     }
 
     public Room getRoom() {

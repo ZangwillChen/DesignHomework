@@ -5,7 +5,7 @@
 <hibernate-mapping package="com.czw.entity">
     <class name="com.czw.entity.Admin" table="tb_admin">
         <id name="adminID" type="java.lang.Long">
-            <column name="ad=_id" />
+            <column name="a_id" />
             <generator class="native" />
         </id>
         <property name="adminName" type="java.lang.String"

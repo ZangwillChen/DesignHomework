@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.czw.entity">
+    <class name="com.czw.entity.Announcement" table="tb_anno">
+        <id name="annoID" type="java.lang.Long">
+            <column name="anno_id" />
+            <generator class="native" />
+        </id>
+
+        <property name="annoTitle" type="java.lang.String"
+                  length="100">
+            <column name="anno_t"/>
+        </property>
+
+        <property name="annoContent" type="java.lang.String"
+                  length="2000">
+            <column name="anno_c" />
+        </property>
+
+        <property name="annoPerson" type="java.lang.String"
+                  length="20">
+            <column name="anno_p" />
+        </property>
+
+        <property name="annoTime" type="java.lang.String"
+                  length="50">
+            <column name="anno_time"/>
+        </property>
+    </class>
+</hibernate-mapping>
