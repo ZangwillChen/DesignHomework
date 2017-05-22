@@ -19,6 +19,11 @@
             <column name="timetabl"/>
         </property>
 
+        <property name="roomStatus" type="java.lang.String" length="20"
+                  not-null="true">
+            <column name="status"/>
+        </property>
+
         <property name="roomtype" type="int" length="10"
                   not-null="true">
             <column name="room_type"/>

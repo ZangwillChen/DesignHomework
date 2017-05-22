@@ -9,6 +9,8 @@ import java.util.List;
  * Created by chenzhaowen on 2017/5/22.
  */
 public interface RoomDao extends BaseDao<Room> {
+    Room getRoomByName(String roomName);
     List<Room> getRoomByTime(String timeTable);
+    List<Room> getRoomByStatus(String roomStatus);
     Room getReserveInfo(String roomName, List<ReserveInfo> info);
 }

@@ -43,7 +43,6 @@
         <mapping resource="com/czw/entity/ReserveInfo.hbm.xml"/>
         <mapping resource="com/czw/entity/Role.hbm.xml" />
         <mapping resource="com/czw/entity/Room.hbm.xml" />
-        <mapping resource="com/czw/entity/RoomTimeTable.hbm.xml" />
         <mapping resource="com/czw/entity/User.hbm.xml" />
 
 

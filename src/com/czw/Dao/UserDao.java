@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface UserDao extends BaseDao<User> {
     public User getUserByNameAndPwd(String userName,String userPassword);
+    List<User> getByType(String userType);
 }
