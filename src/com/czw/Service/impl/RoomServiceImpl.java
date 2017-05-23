@@ -1,6 +1,7 @@
-package com.czw.Service;
+package com.czw.Service.impl;
 
-import com.czw.Dao.BaseDao;
+import com.czw.Dao.impl.BaseDaoImpl;
+import com.czw.Service.RoomService;
 import com.czw.entity.ReserveInfo;
 import com.czw.entity.Room;
 
@@ -8,27 +9,24 @@ import java.util.List;
 
 /**
  * Created by chenzhaowen on 2017/5/23.
- * @brief 房间业务逻辑接口
  */
-public interface RoomService extends BaseDao<Room> {
+public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
 
     /*
-    * @brief 获取房间列表逻辑接口
-    * @return
-    * */
+   * @brief 获取房间列表逻辑接口实现
+   * @return
+   * */
     List<Room> getRoomList();
 
     /*
-    * @brief 根据房间状态（是否停用）逻辑接口
+    * @brief 根据房间状态（是否停用）逻辑接口实现
     * @param roomStatus
     * @return
     * */
     List<Room> getRoomListByStatus(String roomStatus);
 
-
-
     /*
-    * @brief 获取预约信息逻辑接口
+    * @brief 获取预约信息逻辑接口实现
     * @param roomID
     * @param ReserveInfo
     * @return
@@ -36,7 +34,7 @@ public interface RoomService extends BaseDao<Room> {
     ReserveInfo getReserveInfo(long roomID, ReserveInfo info);
 
     /*
-    * @brief 修改房间类型逻辑接口
+    * @brief 修改房间类型逻辑接口实现
     * @param roomID
     * @param roomType
     * @return
@@ -44,21 +42,20 @@ public interface RoomService extends BaseDao<Room> {
     Room changeType(long roomID, int roomType);
 
     /*
-    * @brief 修改房间停用状态逻辑接口
+    * @brief 修改房间停用状态逻辑接口实现实现
     * @param roomID
     * */
     void roomStatusChange(long roomID);
 
     /*
-    * @brief 添加房间逻辑接口
+    * @brief 添加房间逻辑接口实现
     * @param room
     * */
     void roomAdd(Room room);
 
     /*
-    * @brief 根据ID删除房间逻辑接口
+    * @brief 根据ID删除房间逻辑接口实现
     * @param roomID
     * */
     void roomDeleteById(long roomID);
-
 }
