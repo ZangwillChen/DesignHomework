@@ -16,5 +16,8 @@ public class AdminServiceImpl extends BaseDaoImpl<Admin> implements AdminService
 
     Admin admin;
     @Override
+    public Admin admin_login(String adminName,String adminPassword){
+
+    }
 
 }

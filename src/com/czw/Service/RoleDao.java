@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Created by chenzhaowen on 2017/5/23.
+ * @brief 角色业务逻辑接口
  */
 public interface RoleDao extends BaseDao<Role> {
 
@@ -25,7 +26,16 @@ public interface RoleDao extends BaseDao<Role> {
     * */
     Role roleEdit(Role role);
 
+    /*
+    * @brief 添加角色逻辑接口
+    * @param role
+    * @return
+    * */
     Role roleAdd(Role role);
-
+    /*
+    * @brief 删除角色逻辑接口
+    * @param roleID
+    * @return
+    * */
     Role roleDelete(long roleID);
 }
