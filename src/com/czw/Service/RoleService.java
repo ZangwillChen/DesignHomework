@@ -10,7 +10,7 @@ import java.util.List;
  * Created by chenzhaowen on 2017/5/23.
  * @brief 角色业务逻辑接口
  */
-public interface RoleDao extends BaseDao<Role> {
+public interface RoleService extends BaseDao<Role> {
 
 
     /*
@@ -20,22 +20,28 @@ public interface RoleDao extends BaseDao<Role> {
     List<Role> getAllRoles();
 
     /*
-    * @brief 修改角色逻辑接口
+    * @brief 按ID获取修改角色逻辑接口
     * @param role
     * @return
     * */
-    Role roleEdit(Role role);
+    Role role_edit_getById(long roleID);
+
+    /*
+    * @brief 更新实体
+    * @param r
+    * */
+    void role_edit_update(Role r);
 
     /*
     * @brief 添加角色逻辑接口
     * @param role
     * @return
     * */
-    Role roleAdd(Role role);
+    void roleAdd(Role role);
     /*
     * @brief 删除角色逻辑接口
     * @param roleID
     * @return
     * */
-    Role roleDelete(long roleID);
+    void roleDelete(long roleID);
 }
