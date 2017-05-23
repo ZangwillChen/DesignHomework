@@ -55,5 +55,5 @@ public interface AdminService extends BaseDao<Admin> {
     * @return
     * */
 
-    Admin admin_edit_update(Admin a);
+    void admin_edit_update(Admin a);
 }
