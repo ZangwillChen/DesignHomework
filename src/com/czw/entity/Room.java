@@ -11,7 +11,7 @@ public class Room {
     private long roomID;
     private String roomName;
     private String timeTable;
-    private String roomStatus;
+    private String roomStatus;//是否为停用
     private int roomtype;
     private ReserveInfo reserveInfos ;
 

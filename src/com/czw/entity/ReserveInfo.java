@@ -6,14 +6,14 @@ package com.czw.entity;
  */
 public class ReserveInfo {
     private long revID;
-    private String revDate;
-    private String reserveStatus;
+    private String revDate;//时间
+    private ReserveStatus reserveStatus;//每天六节课
 
     public ReserveInfo(){
 
     }
 
-    public ReserveInfo(long revID,String revDate,String reserveStatus){
+    public ReserveInfo(long revID,String revDate,ReserveStatus reserveStatus){
         this.revID = revID;
         this.revDate = revDate;
         this.reserveStatus = reserveStatus;
@@ -35,11 +35,11 @@ public class ReserveInfo {
         this.revDate = revDate;
     }
 
-    public String getReserveStatus() {
+    public ReserveStatus getReserveStatus() {
         return reserveStatus;
     }
 
-    public void setReserveStatus(String reserveStatus) {
+    public void setReserveStatus(ReserveStatus reserveStatus) {
         this.reserveStatus = reserveStatus;
     }
 }

@@ -14,7 +14,7 @@ public class User {
     private String userPassword;
     private String userPhone;
     private String userEmail;
-    private String ReserveInf;  //用户的个人预约信息
+    private String ReserveInf;  //用户的个人预约信息，此处可以存储revID
     private Role userType;
 
     public User(){

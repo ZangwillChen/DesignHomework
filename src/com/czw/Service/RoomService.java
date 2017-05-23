@@ -17,6 +17,8 @@ public interface RoomService extends BaseDao<Room> {
 
     ReserveInfo getReserveInfo(long roomID, ReserveInfo info);
 
+    Room changeType(long roomID, int roomtype);
+
     void roomStatusChange(long roomID);
 
     void roomAdd(Room room);

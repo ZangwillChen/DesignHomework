@@ -11,9 +11,18 @@ import java.util.List;
  */
 public interface RoleDao extends BaseDao<Role> {
 
+
+    /*
+    * @brief 获取所有用户类型逻辑接口
+    * @return
+    * */
     List<Role> getAllRoles();
 
-
+    /*
+    * @brief 修改角色逻辑接口
+    * @param role
+    * @return
+    * */
     Role roleEdit(Role role);
 
     Role roleAdd(Role role);
