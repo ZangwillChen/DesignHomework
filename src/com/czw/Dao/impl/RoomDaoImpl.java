@@ -25,16 +25,34 @@ public class RoomDaoImpl extends BaseDaoImpl<Room> implements RoomDao{
         return room;
     }
 
+    @Override
     public List<Room> getRoomByTime(String timeTable){
-
+        List<Room> rooms ;
+        Session session = getSession();
+        org.hibernate.query.Query query = session.createQuery("FROM Room rooms WHERE rooms.timeTable=?");
+        query.setParameter(0,timeTable);
+        rooms = (List<Room>)query.list();
+        return rooms;
     }
 
+    @Override
     public List<Room> getRoomByStatus(String roomStatus){
-
+        List<Room> rooms;
+        Session session = getSession();
+        org.hibernate.query.Query query = session.createQuery("FROM Room rooms WHERE rooms.roomStatus=? ");
+        rooms = (List<Room>)query.list();
+        return rooms;
     }
 
-    public Room getReserveInfo(String roomName, List<ReserveInfo> info){
 
+    @Override
+    public List<ReserveInfo> getReserveInfo(Room room){
+
+        List<ReserveInfo> info;
+        Session session = getSession();
+        org.hibernate.query.Query query = session.createQuery("FROM Room room WHERE room.reserveInfos.reserveStatus=?");
+        info = (List<ReserveInfo>)query.list();
+        return info;
     }
 
 }
