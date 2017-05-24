@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.czw.entity.ReserveInfo" table="tb_reserveinfo">
+        <id name="revID" type="java.lang.Long">
+            <column name="rev_id"/>
+            <generator class="native"/>
+        </id>
+
+        <property name="revDate" type="java.lang.String">
+            <column name="rev_date"/>
+        </property>
+
+        <many-to-one name="user" class="com.czw.entity.User">
+             <column name="rev_user"/>
+        </many-to-one>
+
+        <many-to-one name="room" class="com.czw.entity.Room">
+            <column name="rev_room"/>
+        </many-to-one>
+
+        <many-to-one name="course" class="com.czw.entity.Course">
+            <column name="rev_course"/>
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>

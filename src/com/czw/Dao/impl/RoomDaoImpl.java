@@ -18,7 +18,7 @@ public class RoomDaoImpl extends BaseDaoImpl<Room> implements RoomDao{
     public Room getRoomByName(String roomName){
         Room room = null;
         Session session = getSession();
-        Query query = session.createQuery("FROM Room room WHERE room.roomName=?");
+        org.hibernate.query.Query query = session.createQuery("FROM Room room WHERE room.roomName=?");
         query.setParameter(0,roomName);
         room = (Room)query.uniqueResult();
         return room;

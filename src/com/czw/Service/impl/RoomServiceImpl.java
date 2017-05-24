@@ -53,18 +53,6 @@ public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
     }
 
     /*
-    * @brief 获取预约信息逻辑接口实现
-    * @param roomID
-    * @param ReserveInfo
-    * @return
-    * */
-    @Override
-    public ReserveInfo getReserveInfo(long roomID){
-
-
-    }
-
-    /*
     * @brief 修改房间类型逻辑接口实现
     * @param roomID
     * @param roomType

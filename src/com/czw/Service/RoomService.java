@@ -29,14 +29,6 @@ public interface RoomService extends BaseDao<Room> {
 
 
     /*
-    * @brief 获取预约信息逻辑接口
-    * @param roomID
-    * @param ReserveInfo
-    * @return
-    * */
-    ReserveInfo getReserveInfo(long roomID);
-
-    /*
     * @brief 修改房间类型逻辑接口
     * @param roomID
     * @param roomType
