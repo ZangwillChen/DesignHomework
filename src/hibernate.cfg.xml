@@ -45,6 +45,7 @@
         <mapping resource="com/czw/entity/Room.hbm.xml" />
         <mapping resource="com/czw/entity/User.hbm.xml" />
         <mapping resource="com/czw/entity/RoomTimeTable.hbm.xml"/>
+        <mapping resource="com/czw/entity/Course.hbm.xml"/>
 
 
     </session-factory>

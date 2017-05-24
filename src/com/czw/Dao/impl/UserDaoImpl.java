@@ -5,12 +5,14 @@ import com.czw.entity.Role;
 import com.czw.entity.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by chenzhaowen on 2017/5/23.
  */
+@Repository
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
     @Override

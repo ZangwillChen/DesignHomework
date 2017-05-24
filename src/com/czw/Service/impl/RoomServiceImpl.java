@@ -5,6 +5,8 @@ import com.czw.Dao.impl.BaseDaoImpl;
 import com.czw.Service.RoomService;
 import com.czw.entity.ReserveInfo;
 import com.czw.entity.Room;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -37,6 +39,17 @@ public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
     public List<Room> getRoomListByStatus(String roomStatus){
         List<Room> roomList = roomDao.getRoomByStatus(roomStatus);
         return roomList;
+    }
+
+    public List<Room> getRoomListByRole(int userType,String roomStatus){
+        List<Room> roomList = null;
+        Session session = getSession();
+        Query query =session.createQuery("FROM Room room WHERE room.roomStatus=? AND room.roomtype<=?");
+        query.setParameter(0,roomStatus);
+        query.setParameter(1,userType);
+        roomList = (List<Room>) query.list();
+        return roomList;
+
     }
 
     /*

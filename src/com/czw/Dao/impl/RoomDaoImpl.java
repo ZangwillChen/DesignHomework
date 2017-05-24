@@ -45,17 +45,4 @@ public class RoomDaoImpl extends BaseDaoImpl<Room> implements RoomDao{
     }
 
 
-    @Override
-    public List<ReserveStatus> getReserveInfo(long roomID,String revDate){
-
-        List<ReserveStatus> reserveStatusList;
-        Session session = getSession();
-        org.hibernate.query.Query query = session.createQuery("FROM Room room WHERE room.roomID=? " +
-                "AND room.reserveInfos.revDate=?");
-        query.setParameter(0,roomID);
-        query.setParameter(1,revDate);
-        reserveStatusList = (List<ReserveStatus>) query.list();
-        return reserveStatusList;
-    }
-
 }

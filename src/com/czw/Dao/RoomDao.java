@@ -11,5 +11,4 @@ public interface RoomDao extends BaseDao<Room> {
     Room getRoomByName(String roomName);
     List<Room> getRoomByTime(String timeTable);
     List<Room> getRoomByStatus(String roomStatus);
-    List<ReserveStatus> getReserveInfo(long roomID, String revDate);
 }
