@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.czw.entity.RoomTimeTable" table="tb_roomtimetable">
+        <id name="roomTimeTableID" type="java.lang.Long">
+            <column name="rt_roomtID"/>
+            <generator class="native"/>
+        </id>
+        
+        <property name="roomTimeTableWeek" type="java.lang.String">
+            <column name="rt_roomtweek"/>
+        </property>
+        <!-- 单向一对一-->
+        <many-to-one name="room" class="com.czw.entity.Room" unique="true">
+            <column name="roomtabroomID"/>
+        </many-to-one>
+
+        <property name="roomTime" type="java.util.Date">
+            <column name="rt_time"/>
+        </property>
+
+        <property name="roomStatus" type="java.lang.String">
+            <column name="rt_status"/>
+        </property>
+     </class>
+</hibernate-mapping>

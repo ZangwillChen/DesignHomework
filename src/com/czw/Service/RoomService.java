@@ -2,7 +2,6 @@ package com.czw.Service;
 
 import com.czw.Dao.BaseDao;
 import com.czw.entity.ReserveInfo;
-import com.czw.entity.ReserveStatus;
 import com.czw.entity.Room;
 
 import java.util.List;
@@ -53,8 +52,6 @@ public interface RoomService extends BaseDao<Room> {
     * @brief 添加房间逻辑接口
     * @param room
     * */
-
-    void updateReserveStatus(ReserveInfo info, ReserveStatus status);
 
     void roomAdd(Room room);
 

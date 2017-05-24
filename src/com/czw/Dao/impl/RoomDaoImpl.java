@@ -1,7 +1,6 @@
 package com.czw.Dao.impl;
 
 import com.czw.Dao.RoomDao;
-import com.czw.entity.ReserveInfo;
 import com.czw.entity.Room;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -40,19 +39,23 @@ public class RoomDaoImpl extends BaseDaoImpl<Room> implements RoomDao{
         List<Room> rooms;
         Session session = getSession();
         org.hibernate.query.Query query = session.createQuery("FROM Room rooms WHERE rooms.roomStatus=? ");
+        query.setParameter(0,roomStatus);
         rooms = (List<Room>)query.list();
         return rooms;
     }
 
 
     @Override
-    public List<ReserveInfo> getReserveInfo(Room room){
+    public List<ReserveStatus> getReserveInfo(long roomID,String revDate){
 
-        List<ReserveInfo> info;
+        List<ReserveStatus> reserveStatusList;
         Session session = getSession();
-        org.hibernate.query.Query query = session.createQuery("FROM Room room WHERE room.reserveInfos.reserveStatus=?");
-        info = (List<ReserveInfo>)query.list();
-        return info;
+        org.hibernate.query.Query query = session.createQuery("FROM Room room WHERE room.roomID=? " +
+                "AND room.reserveInfos.revDate=?");
+        query.setParameter(0,roomID);
+        query.setParameter(1,revDate);
+        reserveStatusList = (List<ReserveStatus>) query.list();
+        return reserveStatusList;
     }
 
 }

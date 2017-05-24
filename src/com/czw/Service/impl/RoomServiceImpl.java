@@ -1,17 +1,22 @@
 package com.czw.Service.impl;
 
+import com.czw.Dao.RoomDao;
 import com.czw.Dao.impl.BaseDaoImpl;
 import com.czw.Service.RoomService;
 import com.czw.entity.ReserveInfo;
-import com.czw.entity.ReserveStatus;
 import com.czw.entity.Room;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * Created by chenzhaowen on 2017/5/23.
  */
 public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
+
+    @Resource
+    RoomDao roomDao;
+
 
     /*
    * @brief 获取房间列表逻辑接口实现
@@ -30,7 +35,7 @@ public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
     * */
     @Override
     public List<Room> getRoomListByStatus(String roomStatus){
-        List<Room> roomList = getRoomListByStatus(roomStatus);
+        List<Room> roomList = roomDao.getRoomByStatus(roomStatus);
         return roomList;
     }
 
@@ -43,6 +48,7 @@ public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
     @Override
     public ReserveInfo getReserveInfo(long roomID){
 
+
     }
 
     /*
@@ -53,7 +59,6 @@ public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
     * */
     Room changeType(long roomID, int roomType);
 
-    void updateReserveStatus(ReserveInfo info, ReserveStatus status);
 
     /*
     * @brief 修改房间停用状态逻辑接口实现实现

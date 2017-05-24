@@ -7,16 +7,14 @@ package com.czw.entity;
 public class ReserveInfo {
     private long revID;
     private String revDate;//时间
-    private ReserveStatus reserveStatus;//每天六节课
 
     public ReserveInfo(){
 
     }
 
-    public ReserveInfo(long revID,String revDate,ReserveStatus reserveStatus){
+    public ReserveInfo(long revID,String revDate){
         this.revID = revID;
         this.revDate = revDate;
-        this.reserveStatus = reserveStatus;
     }
 
     public long getRevID() {
@@ -33,13 +31,5 @@ public class ReserveInfo {
 
     public void setRevDate(String revDate) {
         this.revDate = revDate;
-    }
-
-    public ReserveStatus getReserveStatus() {
-        return reserveStatus;
-    }
-
-    public void setReserveStatus(ReserveStatus reserveStatus) {
-        this.reserveStatus = reserveStatus;
     }
 }

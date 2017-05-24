@@ -29,6 +29,7 @@
             <column name="room_type"/>
         </property>
 
+       <!--
         <component name="reserveInfos" class="com.czw.entity.ReserveInfo">
             <property name="revID"></property>
             <property name="revDate"></property>
@@ -41,6 +42,7 @@
                 <property name="class6"/>
             </component>
         </component>
+        -->
 
     </class>
 </hibernate-mapping>

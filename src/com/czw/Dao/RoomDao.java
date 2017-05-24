@@ -1,6 +1,5 @@
 package com.czw.Dao;
 
-import com.czw.entity.ReserveInfo;
 import com.czw.entity.Room;
 
 import java.util.List;
@@ -12,5 +11,5 @@ public interface RoomDao extends BaseDao<Room> {
     Room getRoomByName(String roomName);
     List<Room> getRoomByTime(String timeTable);
     List<Room> getRoomByStatus(String roomStatus);
-    List<ReserveInfo> getReserveInfo(Room room);
+    List<ReserveStatus> getReserveInfo(long roomID, String revDate);
 }

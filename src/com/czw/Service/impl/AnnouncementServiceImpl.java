@@ -3,12 +3,16 @@ package com.czw.Service.impl;
 import com.czw.Dao.impl.BaseDaoImpl;
 import com.czw.Service.AnnouncementService;
 import com.czw.entity.Announcement;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
  * Created by chenzhaowen on 2017/5/23.
  */
+@Service
+@Transactional
 public class AnnouncementServiceImpl extends BaseDaoImpl<Announcement> implements AnnouncementService {
 
     @Override
