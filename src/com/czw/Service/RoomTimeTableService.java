@@ -11,10 +11,7 @@ import java.util.List;
 public interface RoomTimeTableService extends BaseDao<RoomTimeTable> {
     List<RoomTimeTable> getAllByStatus(String unhandle);
 
-    RoomTimeTable getRoomTimeTableByCtime(String revRoomName,String revWeek,String revTime);
+    void confirmUnhanleRoom(long roomTimeTableID, String handle);
 
-    List<RoomTimeTable> RomTimeTablefindAll();
-
-    RoomTimeTable getRoomTimeTableByRoom(String roomName);
-
+    void RoomTimeTableDeleteById(long RoomTimeTableId);
 }

@@ -14,4 +14,6 @@ public interface ReserveInfoService extends BaseDao<ReserveInfo> {
     List<ReserveInfo> ReserveInfofindAll();
     void deleteById(long revID);
     void reserveInfo_update(ReserveInfo reserveInfo);
+
+
 }
