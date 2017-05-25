@@ -4,8 +4,8 @@ import com.czw.Dao.impl.BaseDaoImpl;
 import com.czw.Service.AnnouncementService;
 import com.czw.entity.Announcement;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 /**

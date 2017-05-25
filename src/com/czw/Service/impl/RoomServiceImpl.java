@@ -3,10 +3,11 @@ package com.czw.Service.impl;
 import com.czw.Dao.RoomDao;
 import com.czw.Dao.impl.BaseDaoImpl;
 import com.czw.Service.RoomService;
-import com.czw.entity.ReserveInfo;
 import com.czw.entity.Room;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -14,6 +15,8 @@ import java.util.List;
 /**
  * Created by chenzhaowen on 2017/5/23.
  */
+@Service
+@Transactional
 public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
 
     @Resource
@@ -30,6 +33,11 @@ public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
        return roomList;
    }
 
+    @Override
+    public Room getRoomByName(String roomName){
+       return roomDao.getRoomByName(roomName);
+    }
+
     /*
     * @brief 根据房间状态（是否停用）逻辑接口实现
     * @param roomStatus
@@ -44,7 +52,7 @@ public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
     public List<Room> getRoomListByRole(int userType,String roomStatus){
         List<Room> roomList = null;
         Session session = getSession();
-        Query query =session.createQuery("FROM Room room WHERE room.roomStatus=? AND room.roomtype<=?");
+        Query query =session.createQuery("FROM Room room WHERE room.roomStatus=? AND room.roomtype<=?");    //角色的权限大于房间的roomtype时即可访问
         query.setParameter(0,roomStatus);
         query.setParameter(1,userType);
         roomList = (List<Room>) query.list();
@@ -52,30 +60,43 @@ public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
 
     }
 
-    /*
-    * @brief 修改房间类型逻辑接口实现
-    * @param roomID
-    * @param roomType
-    * @return
-    * */
-    Room changeType(long roomID, int roomType);
-
+    @Override
+    public void changeType(long roomID, int roomType){
+        Room room;
+        room = roomDao.getById(roomID);
+        room.setRoomtype(roomType);
+    }
 
     /*
-    * @brief 修改房间停用状态逻辑接口实现实现
+    * @brief 修改房间停用状态逻辑接口
     * @param roomID
     * */
-    void roomStatusChange(long roomID);
+    @Override
+    public void roomStatusChange(long roomID, String roomStatus){
+        Room room = roomDao.getById(roomID);
+        room.setRoomStatus(roomStatus);
+    }
 
+    /*
+    * @brief 添加房间逻辑接口
+    * @param room
+    * */
     /*
     * @brief 添加房间逻辑接口实现
     * @param room
     * */
-    void roomAdd(Room room);
+    @Override
+    public void roomAdd(Room room){
+        save(room);
+    }
 
     /*
     * @brief 根据ID删除房间逻辑接口实现
     * @param roomID
     * */
-    void roomDeleteById(long roomID);
+
+    @Override
+    public void roomDeleteById(long roomID){
+        delete(roomID);
+    }
 }

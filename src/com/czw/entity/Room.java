@@ -10,7 +10,6 @@ public class Room {
 
     private long roomID;
     private String roomName;
-    private String timeTable;
     private String roomStatus;//是否为停用
     private int roomtype;
     private ReserveInfo reserveInfos ;
@@ -19,11 +18,9 @@ public class Room {
 
     }
 
-    public Room(long roomID,String roomName,String timeTable,String roomStatus,
-                int roomtype,ReserveInfo reserveInfos){
+    public Room(long roomID, String roomName, String roomStatus, int roomtype, ReserveInfo reserveInfos) {
         this.roomID = roomID;
         this.roomName = roomName;
-        this.timeTable = timeTable;
         this.roomStatus = roomStatus;
         this.roomtype = roomtype;
         this.reserveInfos = reserveInfos;
@@ -45,28 +42,20 @@ public class Room {
         this.roomName = roomName;
     }
 
-    public int getRoomtype() {
-        return roomtype;
-    }
-
-    public void setRoomtype(int roomtype) {
-        this.roomtype = roomtype;
+    public String getRoomStatus() {
+        return roomStatus;
     }
 
     public void setRoomStatus(String roomStatus) {
         this.roomStatus = roomStatus;
     }
 
-    public String getRoomStatus() {
-        return roomStatus;
+    public int getRoomtype() {
+        return roomtype;
     }
 
-    public String getTimeTable() {
-        return timeTable;
-    }
-
-    public void setTimeTable(String timeTable) {
-        this.timeTable = timeTable;
+    public void setRoomtype(int roomtype) {
+        this.roomtype = roomtype;
     }
 
     public ReserveInfo getReserveInfos() {

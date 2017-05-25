@@ -24,7 +24,7 @@ public class RoomDaoImpl extends BaseDaoImpl<Room> implements RoomDao{
         return room;
     }
 
-    @Override
+    /*@Override
     public List<Room> getRoomByTime(String timeTable){
         List<Room> rooms ;
         Session session = getSession();
@@ -33,6 +33,8 @@ public class RoomDaoImpl extends BaseDaoImpl<Room> implements RoomDao{
         rooms = (List<Room>)query.list();
         return rooms;
     }
+    */
+
 
     @Override
     public List<Room> getRoomByStatus(String roomStatus){

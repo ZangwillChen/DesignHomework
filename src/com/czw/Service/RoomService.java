@@ -27,20 +27,20 @@ public interface RoomService extends BaseDao<Room> {
 
     List<Room> getRoomListByRole(int userType,String roomStatus);
 
-
+    Room getRoomByName(String roomName);
     /*
     * @brief 修改房间类型逻辑接口
     * @param roomID
     * @param roomType
     * @return
     * */
-    Room changeType(long roomID, int roomType);
+    void changeType(long roomID, int roomType);
 
     /*
     * @brief 修改房间停用状态逻辑接口
     * @param roomID
     * */
-    void roomStatusChange(long roomID);
+    void roomStatusChange(long roomID,String roomStatus);
 
     /*
     * @brief 添加房间逻辑接口

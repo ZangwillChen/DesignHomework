@@ -8,6 +8,6 @@ import java.util.List;
  * Created by chenzhaowen on 2017/5/24.
  */
 public interface ReserveInfoDao extends BaseDao<ReserveInfo> {
-    ReserveInfo getReserveInfoByUserName(String userName);
+   List<ReserveInfo> getReserveInfoByUserName(String userName);
     ReserveInfo getReserveInfoByRoomName(String roomName);
 }
