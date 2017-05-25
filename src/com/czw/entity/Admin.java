@@ -10,12 +10,10 @@ public class Admin {
     private String adminPhone;
     private String adminEmail;
 
-    public Admin(){
-
+    public Admin() {
     }
 
-    public Admin(long adminID,String adminName, String adminPassword,
-                 String adminPhone,String adminEmail){
+    public Admin(long adminID, String adminName, String adminPassword, String adminPhone, String adminEmail) {
         this.adminID = adminID;
         this.adminName = adminName;
         this.adminPassword = adminPassword;
