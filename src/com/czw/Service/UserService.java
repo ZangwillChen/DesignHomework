@@ -22,7 +22,7 @@ public interface UserService extends BaseDao<User> {
     * @param userName
     * @return
     * */
-    List<User> getUserByName(String userName);
+    User getUserByName(String userName);
 
     /*
     * @brief 用户登录逻辑接口
@@ -37,20 +37,22 @@ public interface UserService extends BaseDao<User> {
     * @param user
     * @return
     * */
-    User userAdd(User user);
+    void userAdd(User user);
 
     /*
     * @brief 根据ID删除用户逻辑接口
     * @param userID
     * @return
     * */
-    User userDeleteById(long userID);
+    void userDeleteById(long userID);
 
     /*
     * @brief 更新用户信息逻辑接口
     * @param user
     * @return
     * */
-    User updateUserInfo(User user);
+    User user_edit_getById(long userID);
+
+    void user_edit_update(User user);
 
 }
