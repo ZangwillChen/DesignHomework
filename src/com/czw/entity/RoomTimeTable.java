@@ -10,16 +10,18 @@ public class RoomTimeTable {
     private long roomTimeTableID;
     private  String roomTimeTableWeek;//课表中的星期次
     private Room room;//课表中教室外键
+    private User user;
     private Date roomTime = new Date();//这节课的时间
     private String roomStatus;//这节课的状态
 
     public RoomTimeTable() {
     }
 
-    public RoomTimeTable(long roomTimeTableID, String roomTimeTableWeek, Room room, Date roomTime, String roomStatus) {
+    public RoomTimeTable(long roomTimeTableID, String roomTimeTableWeek, Room room, User user, Date roomTime, String roomStatus) {
         this.roomTimeTableID = roomTimeTableID;
         this.roomTimeTableWeek = roomTimeTableWeek;
         this.room = room;
+        this.user = user;
         this.roomTime = roomTime;
         this.roomStatus = roomStatus;
     }
@@ -46,6 +48,14 @@ public class RoomTimeTable {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Date getRoomTime() {

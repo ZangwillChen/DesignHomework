@@ -17,6 +17,10 @@
             <column name="roomtabroomID"/>
         </many-to-one>
 
+        <many-to-one name="user" class="com.czw.entity.User" unique="true">
+            <column name="roomuserId"/>
+        </many-to-one>
+
         <property name="roomTime" type="java.util.Date">
             <column name="rt_time"/>
         </property>
