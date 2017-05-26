@@ -99,5 +99,11 @@ public class UserServiceImpl extends BaseDaoImpl<User> implements UserService {
         update(user);
     }
 
+    @Override
+    public List<User> getUserByType(String userType){
+        List<User> users = userDao.getByType(userType);
+        return users;
+    }
+
 
 }

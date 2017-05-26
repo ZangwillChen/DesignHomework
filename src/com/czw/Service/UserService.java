@@ -55,4 +55,6 @@ public interface UserService extends BaseDao<User> {
 
     void user_edit_update(User user);
 
+    List<User> getUserByType(String userType);
+
 }

@@ -28,7 +28,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     }
 
     @Override
-    public List<User> getByType(Role userType){
+    public List<User> getByType(String userType){
 
         List<User> userList;
         Session session = getSession();
