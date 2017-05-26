@@ -1,12 +1,19 @@
 package com.czw.Action;
 
 import com.czw.Service.UserService;
+import com.czw.entity.ReserveInfo;
+import com.czw.entity.ReserveInfoSearch;
 import com.czw.entity.User;
 import com.opensymphony.xwork2.ModelDriven;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by chenzhaowen on 2017/5/26.
@@ -60,7 +67,94 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
     public String userEdit() {
         User userUpdateInfo;
         System.out.println("(用户信息修改)用户ID"+user.getUserID());
+        User editUser = userService.user_edit_getById(user.getUserID());
 
+        if (editUser != null){
+            editUser.setUserName(user.getUserName());
+            editUser.setUserPassword(user.getUserPassword());
+            editUser.setUserPhone(user.getUserPhone());
+            editUser.setUserEmail(user.getUserEmail());
+
+            userService.user_edit_update(editUser);
+            userUpdateInfo = editUser;
+            session.setAttribute("userUpdeteInfo",userUpdateInfo);
+            return "toUserInfoUI";
+        }
+        return "ERROR";
+    }
+
+    /**
+     * @brief 教室预约页面
+     * @return
+     */
+    public String userReserveRoomUI() {
+        return "userReserveRoomUI";
+    }
+    /**
+     * @brief 房间可预约列表
+     * @return
+     */
+    public String userReserveSearch() {
+        String soUserName = request.getParameter("soUserName");
+        String roomName = request.getParameter("roomName");
+        String courseTime = request.getParameter("courseTime");
+        String roomTime = request.getParameter("roomTime");
+
+        User user = (User) session.getAttribute("ulogin");
+        long userID = user.getUserID();
+        String week = "";
+        System.out.println("(预约查询)查询信息"+soUserName+roomName+courseTime+roomTime+userID);
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        // 字符串格式转化为日期格式并获取星期数
+        try {
+            Date new_time = df.parse(roomTime);
+            SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+            week = sdf.format(new_time);
+            System.out.println("星期数"+week);
+        }catch (ParseException e) {
+            e.printStackTrace();
+        }
+        // 初始化查询条件
+        ReserveInfoSearch reserveInfoSearch = new ReserveInfoSearch(soUserName,roomName,courseTime,roomTime,week);
+        // 执行查询并返回结果
+        ReserveInfo reserveInfo = userService.getReserveInfoList(reserveInfoSearch);
+        session.setAttribute("reserveInfo",reserveInfo);
+        return "userReserveRoomList";
+    }
+
+    /**
+     * @brief 用户列表显示
+     * @return
+     */
+    public String userListUI() {
+        List<User> userList = userService.userFindAll();
+        session.setAttribute("userList",userList);
+        return "userList";
+    }
+    /**
+     * @brief 用户添加页面
+     * @return
+     */
+    public String userAddUI() {
+        return "teacherAddUI";
+    }
+
+    /**
+     * @brief 用户添加
+     * @return
+     */
+    public String userAdd() {
+        userService.userAdd(user);
+        return "toUserList";
+    }
+
+    /**
+     * @brief 用户删除
+     * @return
+     */
+    public String userDelete() {
+        userService.userDeleteById(user.getUserID());
+        return "toUserList";
     }
 
 

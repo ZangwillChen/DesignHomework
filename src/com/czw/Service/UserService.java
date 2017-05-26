@@ -1,6 +1,8 @@
 package com.czw.Service;
 
 import com.czw.Dao.BaseDao;
+import com.czw.entity.ReserveInfo;
+import com.czw.entity.ReserveInfoSearch;
 import com.czw.entity.User;
 
 import java.util.List;
@@ -56,5 +58,7 @@ public interface UserService extends BaseDao<User> {
     void user_edit_update(User user);
 
     List<User> getUserByType(String userType);
+
+    ReserveInfo getReserveInfoList(ReserveInfoSearch serchInfo);
 
 }

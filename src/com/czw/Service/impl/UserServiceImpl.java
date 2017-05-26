@@ -1,8 +1,13 @@
 package com.czw.Service.impl;
 
+import com.czw.Dao.RoomDao;
+import com.czw.Dao.RoomTimeTableDao;
 import com.czw.Dao.UserDao;
 import com.czw.Dao.impl.BaseDaoImpl;
 import com.czw.Service.UserService;
+import com.czw.entity.ReserveInfo;
+import com.czw.entity.ReserveInfoSearch;
+import com.czw.entity.RoomTimeTable;
 import com.czw.entity.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -10,6 +15,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,6 +30,8 @@ public class UserServiceImpl extends BaseDaoImpl<User> implements UserService {
 
     @Resource
     UserDao userDao;
+    RoomTimeTableDao roomTimeTableDao;
+    RoomDao roomDao;
 
     /*
    * @brief 获取所有用户逻辑接口实现
@@ -103,6 +114,31 @@ public class UserServiceImpl extends BaseDaoImpl<User> implements UserService {
     public List<User> getUserByType(String userType){
         List<User> users = userDao.getByType(userType);
         return users;
+    }
+
+    public ReserveInfo getReserveInfoList(ReserveInfoSearch serchInfo){
+        ReserveInfo reserveInfo = new ReserveInfo();
+
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date revTime = null;
+        try {
+            revTime = df.parse(serchInfo.getRevTime());
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        RoomTimeTable roomTimeTable = roomTimeTableDao.getRoomTimeTableByCtime(serchInfo.getRevRoomName(),
+                serchInfo.getRevWeek(),serchInfo.getRevTime());
+
+        if (roomTimeTable != null){
+            return reserveInfo;
+        }
+        reserveInfo.setcRevLabName(serchInfo.getRevRoomName());
+        reserveInfo.setcRevLabLocation(roomDao.getRoomByName(serchInfo.getRevRoomName()).getRoomName());
+        reserveInfo.setcRevData(revTime);
+        // 将查询结果保存到List中
+        return reserveInfo;
     }
 
 

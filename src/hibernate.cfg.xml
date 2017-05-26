@@ -40,7 +40,7 @@
         <!-- 映射文件 -->
         <mapping resource="com/czw/entity/Admin.hbm.xml"/>
         <mapping resource="com/czw/entity/Announcement.hbm.xml"/>
-        <mapping resource="com/czw/entity/ReserveInfo.hbm.xml"/>
+        <!-- <mapping resource="com/czw/entity/ReserveInfo.hbm.xml"/> -->
         <mapping resource="com/czw/entity/Role.hbm.xml" />
         <mapping resource="com/czw/entity/Room.hbm.xml" />
         <mapping resource="com/czw/entity/User.hbm.xml" />

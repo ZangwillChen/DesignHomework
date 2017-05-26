@@ -1,64 +1,51 @@
 package com.czw.entity;
 
+import java.util.Date;
+
 /**
- * Created by chenzhaowen on 2017/5/17.
- * @brief 预约信息实体类
+ * @brief 可预约实验室信息
+ * @author zhuguangjin
+ *
  */
 public class ReserveInfo {
-    private long revID;
-    private String revDate;//时间
-    private User user;
-    private Room room;
-    private Course course;
+
+    private String cRevLabName;// 可预约实验室名
+    private String cRevLabLocation;// 可预约实验室位置
+    private Date cRevData = new Date();// 可预约实验时间
 
     public ReserveInfo() {
+
     }
 
-    public ReserveInfo(long revID, String revDate, User user, Room room, Course course) {
-        this.revID = revID;
-        this.revDate = revDate;
-        this.user = user;
-        this.room = room;
-        this.course = course;
+    public ReserveInfo(String cRevLabName, String cRevLabLocation, Date cRevData) {
+        // super();
+        this.cRevLabName = cRevLabName;
+        this.cRevLabLocation = cRevLabLocation;
+        this.cRevData = cRevData;
     }
 
-    public long getRevID() {
-        return revID;
+    public String getcRevLabName() {
+        return cRevLabName;
     }
 
-    public void setRevID(long revID) {
-        this.revID = revID;
+    public void setcRevLabName(String cRevLabName) {
+        this.cRevLabName = cRevLabName;
     }
 
-    public String getRevDate() {
-        return revDate;
+    public String getcRevLabLocation() {
+        return cRevLabLocation;
     }
 
-    public void setRevDate(String revDate) {
-        this.revDate = revDate;
+    public void setcRevLabLocation(String cRevLabLocation) {
+        this.cRevLabLocation = cRevLabLocation;
     }
 
-    public User getUser() {
-        return user;
+    public Date getcRevData() {
+        return cRevData;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setcRevData(Date cRevData) {
+        this.cRevData = cRevData;
     }
 
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
 }
