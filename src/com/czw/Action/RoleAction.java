@@ -8,6 +8,7 @@ import com.czw.entity.Role;
 import com.czw.entity.Room;
 import com.czw.entity.User;
 import com.opensymphony.xwork2.ModelDriven;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -22,7 +23,7 @@ import java.util.List;
 public class RoleAction extends BaseAction implements ModelDriven<Role> {
 
     private static final long serialVerisonUID = 1L;
-
+    @Autowired
     @Resource
     private RoleService roleService;
     private RoomService roomService;

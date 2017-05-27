@@ -5,6 +5,7 @@ import com.czw.entity.ReserveInfo;
 import com.czw.entity.ReserveInfoSearch;
 import com.czw.entity.User;
 import com.opensymphony.xwork2.ModelDriven;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -23,7 +24,7 @@ import java.util.List;
 public class UserAction extends BaseAction implements ModelDriven<User> {
 
     private static final long serialVersionUID = 1L;
-
+    @Autowired
     @Resource
     private UserService userService;
 

@@ -4,6 +4,7 @@ import com.czw.Service.AdminService;
 import com.czw.entity.Admin;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -26,7 +27,7 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
     /**
      * @brief 业务逻辑对象
      */
-
+    @Autowired
     @Resource
     private AdminService adminService;
 

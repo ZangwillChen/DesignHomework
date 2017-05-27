@@ -10,9 +10,36 @@
 
     <package name="default" namespace="/" extends="struts-default" />
 
-    <package name="testAction" namespace="/" extends="default">
+    <package name="test" namespace="/" extends="default">
         <action name="test" class="com.czw.Action.TestAction">
             <result name="success">/index.jsp</result>
         </action>
     </package>
+
+    <package name="adminAction" namespace="/admin" extends="default">
+        <action name="admin_*" class="com.czw.Action.AdminAction" method="{1}">
+            <!-- 管理员用户 -->
+            <result name="adminLoginUI">/admin/admin_login.jsp</result>
+            <result name="adminLogoutUI">/admin/logout.jsp</result>
+            <result name="toIndex" type="redirect">/admin/index.jsp</result>
+            <result name="toAdminInfoUI">/admin/admin_info.jsp</result>
+            <result name="adminListUI">/admin/admin_list.jsp</result>
+            <result name="toAdminListUI" type="redirect">admin_adminListUI</result>
+            <result name="adminEditUI">/admin/admin_edit.jsp</result>
+            <result name="adminAddUI">/admin/admin_add.jsp</result>
+        </action>
+    </package>
+
+    <!--系统管理员 用户 -->
+    <package name="studentAction" namespace="/admin" extends="default">
+        <action name="user_*" class="UserAction" method="{1}">
+            <result name="userListUI">/admin/user_list.jsp</result>
+            <result name="toUserListUI">/admin/user_list.jsp
+            </result>
+            <result name="toUserList" type="redirect">user_userListUI
+            </result>
+            <result name="userAddUI">/admin/user_add.jsp</result>
+        </action>
+    </package>
+
 </struts>

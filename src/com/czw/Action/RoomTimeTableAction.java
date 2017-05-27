@@ -3,6 +3,7 @@ package com.czw.Action;
 import com.czw.Service.RoomTimeTableService;
 import com.czw.entity.RoomTimeTable;
 import com.opensymphony.xwork2.ModelDriven;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -20,7 +21,7 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
     private static final long serialVersionUID = 1L;
 
     RoomTimeTable roomTimeTable =new RoomTimeTable();
-
+    @Autowired
     @Resource
     RoomTimeTableService roomTimeTableService;
 

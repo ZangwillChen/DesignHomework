@@ -4,10 +4,11 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" />
-          <unit-entry name="sessionFactory" />
+          <unit-entry name="hibernate.cfg.xml" value="d590ba35-01b8-401e-8d95-79abc29d9e64" />
+          <unit-entry name="sessionFactory" value="f912cdd1-b83f-4334-ae07-c0afab77d686" />
         </datasource-map>
         <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/out/artifacts/DesignHomework_war_exploded/WEB-INF/classes/hibernate.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
       </configuration>
     </facet>
@@ -46,6 +47,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.5.11" level="application_server_libraries" />
+    <orderEntry type="library" name="struts2-junit-plugin-2.2.3.1" level="project" />
     <orderEntry type="library" name="antlr-2.7.7" level="project" />
   </component>
 </module>

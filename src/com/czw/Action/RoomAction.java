@@ -6,6 +6,7 @@ import com.czw.entity.Admin;
 import com.czw.entity.Room;
 import com.czw.entity.User;
 import com.opensymphony.xwork2.ModelDriven;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -24,7 +25,7 @@ public class RoomAction extends BaseAction implements ModelDriven<Room> {
     Room room = new Room();
     User user = new User();
     Admin admin = new Admin();
-
+    @Autowired
     @Resource
     RoomService roomService;
     UserService userService;

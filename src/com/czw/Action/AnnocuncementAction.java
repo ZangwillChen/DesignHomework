@@ -3,6 +3,7 @@ package com.czw.Action;
 import com.czw.Service.AnnouncementService;
 import com.czw.entity.Announcement;
 import com.opensymphony.xwork2.ModelDriven;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -21,7 +22,7 @@ public class AnnocuncementAction extends BaseAction implements ModelDriven<Annou
     private static final long serialVersionUID = 1L;
 
     Announcement anno = new Announcement();
-
+    @Autowired
     @Resource
     private AnnouncementService announcementService;
 
