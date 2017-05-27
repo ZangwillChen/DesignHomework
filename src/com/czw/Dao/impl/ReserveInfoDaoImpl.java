@@ -3,7 +3,7 @@ package com.czw.Dao.impl;
 import com.czw.Dao.ReserveInfoDao;
 import com.czw.entity.ReserveInfo;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -5,4 +5,14 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.action.extension" value="action"/>
+
+    <package name="default" namespace="/" extends="struts-default" />
+
+    <package name="testAction" namespace="/" extends="default">
+        <action name="test" class="com.czw.Action.TestAction">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
 </struts>

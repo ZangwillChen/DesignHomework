@@ -4,7 +4,7 @@ import com.czw.Dao.UserDao;
 import com.czw.entity.Role;
 import com.czw.entity.User;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

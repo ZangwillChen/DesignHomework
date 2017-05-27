@@ -4,7 +4,7 @@ import com.czw.Dao.impl.BaseDaoImpl;
 import com.czw.Service.AdminService;
 import com.czw.entity.Admin;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

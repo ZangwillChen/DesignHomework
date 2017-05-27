@@ -45,12 +45,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="Hibernate 5.2.9-5.2.9" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.5.11" level="application_server_libraries" />
-    <orderEntry type="library" exported="" name="Struts 2-2.3.20.1" level="project" />
-    <orderEntry type="library" exported="" name="Spring-4.3.8.RELEASE" level="project" />
-    <orderEntry type="library" exported="" name="mysql-connector-java-5.1.10-bin" level="project" />
-    <orderEntry type="library" exported="" name="jboss-marshalling-1.3.11.GA" level="project" />
-    <orderEntry type="library" exported="" name="jgroups-3.0.9.Final" level="project" />
+    <orderEntry type="library" name="antlr-2.7.7" level="project" />
   </component>
 </module>

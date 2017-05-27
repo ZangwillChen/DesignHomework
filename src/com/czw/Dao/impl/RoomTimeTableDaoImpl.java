@@ -3,7 +3,7 @@ package com.czw.Dao.impl;
 import com.czw.Dao.RoomTimeTableDao;
 import com.czw.entity.RoomTimeTable;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import java.text.DateFormat;

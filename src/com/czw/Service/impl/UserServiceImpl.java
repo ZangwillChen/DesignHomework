@@ -10,7 +10,7 @@ import com.czw.entity.ReserveInfoSearch;
 import com.czw.entity.RoomTimeTable;
 import com.czw.entity.User;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

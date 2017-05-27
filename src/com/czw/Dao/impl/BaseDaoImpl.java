@@ -3,9 +3,10 @@ package com.czw.Dao.impl;
 import com.czw.Dao.BaseDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import javax.transaction.Transactional;
+
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 

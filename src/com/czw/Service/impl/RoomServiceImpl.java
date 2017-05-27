@@ -5,7 +5,7 @@ import com.czw.Dao.impl.BaseDaoImpl;
 import com.czw.Service.RoomService;
 import com.czw.entity.Room;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

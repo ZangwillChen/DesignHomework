@@ -15,7 +15,7 @@ import java.util.List;
  * Created by chenzhaowen on 2017/5/16.
  */
 @Scope("prototype")
-@Controller
+@Controller("AdminAction")
 public class AdminAction extends BaseAction implements ModelDriven<Admin> {
 
 

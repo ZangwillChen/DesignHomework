@@ -1,8 +1,12 @@
 package com.czw.Action;
 
 import com.czw.Service.RoleService;
+import com.czw.Service.RoomService;
+import com.czw.Service.UserService;
 import com.czw.entity.Admin;
 import com.czw.entity.Role;
+import com.czw.entity.Room;
+import com.czw.entity.User;
 import com.opensymphony.xwork2.ModelDriven;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -21,7 +25,11 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
 
     @Resource
     private RoleService roleService;
+    private RoomService roomService;
+    private UserService userService;
     private Role role = new Role();
+    private User user;
+    private Room room;
 
 
     /*
@@ -52,6 +60,23 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
     public String roleAdd() {
         roleService.roleAdd(role);
         return "toRoleList";
+    }
+
+    /*
+   * @brief 检查用户类型是否有权预订该房间
+   * @return
+   * */
+    public String roleCheck() {
+        String userName = request.getParameter("userName");
+        String roomName = request.getParameter("roomName");
+
+        Room room = roomService.getRoomByName(roomName);
+        User user = userService.getUserByName(userName);
+
+        if (user.getUserType().getPermission()>room.getRoomtype()){
+            return "toReserveUI";
+        }
+        else return "ERROR";
     }
 
     public String roleAddUI() {

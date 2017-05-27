@@ -101,6 +101,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
         String roomTime = request.getParameter("roomTime");
 
         User user = (User) session.getAttribute("ulogin");
+       // int userTypeNum = user.getUserType().getPermission();
         long userID = user.getUserID();
         String week = "";
         System.out.println("(预约查询)查询信息"+soUserName+roomName+courseTime+roomTime+userID);
