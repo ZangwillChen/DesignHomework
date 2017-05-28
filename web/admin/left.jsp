@@ -46,39 +46,11 @@
                     </table>
                     <ul class="RM">
                         <li><a href="./admin_info.jsp" target="main">个人信息</a></li>
-                        <li><a href="./student_studentListUI.action" target="main">学生用户</a></li>
-                        <li><a href="./teacher_teacherListUI.action" target="main">老师用户</a></li>
+                        <li><a href="./user_userListUI.action" target="main">普通用户</a></li>
                         <li><a href="./admin_adminListUI.action" target="main">管理员用户</a></li>
                     </ul>
                 </div>
-                <h1 class="type">
-                    <a href="javascript:void(0)">班级管理</a>
-                </h1>
-                <div class="content">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                            <td><img src="../Images//menu_top_line.gif" width="182"
-                                     height="5" /></td>
-                        </tr>
-                    </table>
-                    <ul class="RM">
-                        <li><a href="./sclass_sclassListUI.action" target="main">班级列表</a></li>
-                    </ul>
-                </div>
-                <h1 class="type">
-                    <a href="javascript:void(0)">成绩管理</a>
-                </h1>
-                <div class="content">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                            <td><img src="../Images//menu_top_line.gif" width="182"
-                                     height="5" /></td>
-                        </tr>
-                    </table>
-                    <ul class="RM">
-                        <li><a href="./stuScore_stuScoreListUI.action" target="main">成绩列表</a></li>
-                    </ul>
-                </div>
+
                 <h1 class="type">
                     <a href="javascript:void(0)">预约管理</a>
                 </h1>
@@ -90,9 +62,9 @@
                         </tr>
                     </table>
                     <ul class="RM">
-                        <li><a href="./labttable_labNotHandleListUI.action" target="main">待处理预约</a></li>
-                        <li><a href="./labttable_labHandleListUI.action" target="main">已处理预约</a></li>
-                        <li><a href="./labttable_labFinishedListUI.action" target="main">已完成实验</a></li>
+                        <li><a href="./roomttable_roomNotHandleListUI.action" target="main">待处理预约</a></li>
+                        <li><a href="./roomttable_roomHandleListUI.action" target="main">已处理预约</a></li>
+                        <li><a href="./roomttable_roomFinishedListUI.action" target="main">已完成实验</a></li>
                     </ul>
                 </div>
                 <!-- *********** -->
@@ -108,8 +80,6 @@
                     </table>
                     <ul class="RM">
                         <li><a href="./room_roomListUI.action" target="main">教室列表</a></li>
-                        <li><a href="./laboratory_laboratoryListUI.action" target="main">实验室列表</a></li>
-                        <li><a href="./labDevice_labDeviceListUI.action" target="main">设备列表</a></li>
                     </ul>
                 </div>
                 <h1 class="type">

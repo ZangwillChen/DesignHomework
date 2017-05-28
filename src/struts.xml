@@ -5,10 +5,12 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <constant name="struts.devMode" value="true"/>
-    <constant name="struts.action.extension" value="action"/>
+    <constant name="struts.devMode" value="true"></constant>
+    <constant name="struts.action.extension" value="action"></constant>
 
-    <package name="default" namespace="/" extends="struts-default" />
+    <include file="struts-user-front.xml" />
+
+    <package name="default" namespace="/" extends="struts-default"/>
 
     <package name="test" namespace="/" extends="default">
         <action name="test" class="com.czw.Action.TestAction">
@@ -16,19 +18,22 @@
         </action>
     </package>
 
-    <package name="adminAction" namespace="/admin" extends="default">
-        <action name="admin_*" class="com.czw.Action.AdminAction" method="{1}">
-            <!-- 管理员用户 -->
+
+
+   <package name="adminAction" namespace="/admin" extends="default">
+        <action name="admin_*" class="AdminAction" method="{1}">
+
             <result name="adminLoginUI">/admin/admin_login.jsp</result>
             <result name="adminLogoutUI">/admin/logout.jsp</result>
             <result name="toIndex" type="redirect">/admin/index.jsp</result>
             <result name="toAdminInfoUI">/admin/admin_info.jsp</result>
             <result name="adminListUI">/admin/admin_list.jsp</result>
-            <result name="toAdminListUI" type="redirect">admin_adminListUI</result>
+            <result name="toAdminListUI" type="redirect">/admin/admin_list.jsp</result>
             <result name="adminEditUI">/admin/admin_edit.jsp</result>
             <result name="adminAddUI">/admin/admin_add.jsp</result>
         </action>
     </package>
+
 
     <!--系统管理员 用户 -->
     <package name="studentAction" namespace="/admin" extends="default">

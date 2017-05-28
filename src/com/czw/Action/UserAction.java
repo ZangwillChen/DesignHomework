@@ -14,6 +14,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -24,7 +25,6 @@ import java.util.List;
 public class UserAction extends BaseAction implements ModelDriven<User> {
 
     private static final long serialVersionUID = 1L;
-    @Autowired
     @Resource
     private UserService userService;
 
@@ -128,10 +128,22 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
      * @brief 用户列表显示
      * @return
      */
-    public String userListUI() {
+    public String userListUI() throws Exception {
         List<User> userList = userService.userFindAll();
-        session.setAttribute("userList",userList);
-        return "userList";
+        Iterator<User> itr = userList.iterator();
+        while (itr.hasNext()){
+            User str = itr.next();
+            System.out.println(str.getUserName());
+            System.out.println(str.getUserID());
+            System.out.println(str.getUserPhone());
+            System.out.println(str.getUserEmail());
+        }
+
+        if (userList != null && userList.size() >0){
+            session.setAttribute("userList",userList);
+        }
+
+        return "userListUI";
     }
     /**
      * @brief 用户添加页面

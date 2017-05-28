@@ -4,6 +4,7 @@
 <%
     String path = request.getContextPath();
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,7 +22,7 @@
             <table width="100%" height="31" border="0" cellpadding="0"
                    cellspacing="0" background="./../Images//content_bg.gif">
                 <tr>
-                    <td height="31"><div class="title1">管理员添加</div></td>
+                    <td height="31"><div class="title1">管理员信息</div></td>
                 </tr>
             </table>
         </td>
@@ -48,7 +49,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以添加用户！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看个人信息！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -71,49 +72,55 @@
                         <table width="100%">
                             <tr>
                                 <td colspan="2">
-                                    <s:form action="admin_adminAdd" method="post">
-                                        <table width="100%" class="cont">
+                                    <table width="100%" class="cont">
+                                        <s:iterator value="#session.loginAdmin">
                                             <tr>
-                                                <td width="2%">&nbsp;</td>
-                                                <td width="15%">用户名：</td>
-                                                <td width="25%"><input class="text" type="text"
-                                                                       name="adminName"/></td>
-                                                <td>设置用户名</td>
+                                                <td width="20%">&nbsp;</td>
+                                                <td width="15%">用户ID：</td>
+                                                <td width="25%">${loginAdmin.adminID}</td>
+                                                <td></td>
                                                 <td width="2%">&nbsp;</td>
                                             </tr>
                                             <tr>
+                                                <td width="20%">&nbsp;</td>
+                                                <td width="15%">用户名：</td>
+                                                <td width="25%">${loginAdmin.adminName}</td>
+                                                <td></td>
                                                 <td width="2%">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="20%">&nbsp;</td>
                                                 <td width="15%">密码：</td>
-                                                <td width="25%"><input class="text" type="text"
-                                                                       name="adminPassword"  /></td>
-                                                <td>设置用户的登录密码</td>
+                                                <td width="25%">${loginAdmin.adminPassword}</td>
+                                                <td></td>
+                                                <td width="2%">&nbsp;</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td width="20%">&nbsp;</td>
+                                                <td width="15%">用户电话：</td>
+                                                <td width="25%">${loginAdmin.adminPhone}</td>
+                                                <td></td>
                                                 <td width="2%">&nbsp;</td>
                                             </tr>
 
                                             <tr>
-                                                <td width="2%">&nbsp;</td>
-                                                <td width="15%">电话号码：</td>
-                                                <td width="25%"><input class="text" type="text"
-                                                                       name="adminPhone" /></td>
-                                                <td>设置设置用户的电话号码</td>
-                                                <td width="2%">&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td width="2%">&nbsp;</td>
-                                                <td width="15%">用户邮箱：</td>
-                                                <td width="25%"><input class="text" type="text"
-                                                                       name="adminEmail" /></td>
-                                                <td>设置用户的邮箱</td>
+                                                <td width="20%">&nbsp;</td>
+                                                <td width="15%">用户邮箱</td>
+                                                <td width="25%">${loginAdmin.adminEmail}</td>
+                                                <td></td>
                                                 <td width="2%">&nbsp;</td>
                                             </tr>
                                             <tr>
                                                 <td>&nbsp;</td>
-                                                <td colspan="3"><input class="btn" type="submit"
-                                                                       value="提交" /></td>
+                                                <td><a
+                                                        href="<%=path%>/admin/admin_adminEditUI.action?adminID=%{loginAdmin.adminID}"
+                                                        onclick="javascript: return confirm('要修改吗？');">修改</a></td>
                                                 <td>&nbsp;</td>
                                             </tr>
-                                        </table>
-                                    </s:form>
+                                        </s:iterator>
+                                    </table>
                                 </td>
                             </tr>
                         </table>

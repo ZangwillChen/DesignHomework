@@ -1,16 +1,16 @@
 package com.czw.Action;
 
-import com.czw.Service.AdminService;
-import com.czw.entity.Admin;
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ModelDriven;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
+        import java.util.Iterator;
+        import java.util.List;
 
-import javax.annotation.Resource;
-import java.util.Iterator;
-import java.util.List;
+        import javax.annotation.Resource;
+        import org.springframework.context.annotation.Scope;
+        import org.springframework.stereotype.Controller;
+
+        import com.czw.entity.Admin;
+        import com.czw.Service.AdminService;
+        import com.opensymphony.xwork2.ActionContext;
+        import com.opensymphony.xwork2.ModelDriven;
 
 /**
  * Created by chenzhaowen on 2017/5/16.
@@ -27,9 +27,12 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
     /**
      * @brief 业务逻辑对象
      */
-    @Autowired
     @Resource
     private AdminService adminService;
+
+    public String logonUI() throws Exception{
+        return "adminLoginUI";
+    }
 
     /**
      * @brief 管理员登录界面

@@ -21,7 +21,7 @@
             <table width="100%" height="31" border="0" cellpadding="0"
                    cellspacing="0" background="./../Images//content_bg.gif">
                 <tr>
-                    <td height="31"><div class="title1">管理员添加</div></td>
+                    <td height="31"><div class="title1">添加用户</div></td>
                 </tr>
             </table>
         </td>
@@ -71,13 +71,13 @@
                         <table width="100%">
                             <tr>
                                 <td colspan="2">
-                                    <s:form action="admin_adminAdd" method="post">
+                                    <s:form action="user_userAdd" method="get">
                                         <table width="100%" class="cont">
                                             <tr>
                                                 <td width="2%">&nbsp;</td>
                                                 <td width="15%">用户名：</td>
                                                 <td width="25%"><input class="text" type="text"
-                                                                       name="adminName"/></td>
+                                                                       name="userName"/></td>
                                                 <td>设置用户名</td>
                                                 <td width="2%">&nbsp;</td>
                                             </tr>
@@ -85,27 +85,19 @@
                                                 <td width="2%">&nbsp;</td>
                                                 <td width="15%">密码：</td>
                                                 <td width="25%"><input class="text" type="text"
-                                                                       name="adminPassword"  /></td>
-                                                <td>设置用户的登录密码</td>
+                                                                       name="userPassword"  /></td>
+                                                <td>设置登录密码</td>
+                                                <td width="2%">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="2%">&nbsp;</td>
+                                                <td width="15%">用户类型：</td>
+                                                <td width="25%"><input class="text" type="text"
+                                                                       name="userType"/></td>
+                                                <td>设置用户类型</td>
                                                 <td width="2%">&nbsp;</td>
                                             </tr>
 
-                                            <tr>
-                                                <td width="2%">&nbsp;</td>
-                                                <td width="15%">电话号码：</td>
-                                                <td width="25%"><input class="text" type="text"
-                                                                       name="adminPhone" /></td>
-                                                <td>设置设置用户的电话号码</td>
-                                                <td width="2%">&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td width="2%">&nbsp;</td>
-                                                <td width="15%">用户邮箱：</td>
-                                                <td width="25%"><input class="text" type="text"
-                                                                       name="adminEmail" /></td>
-                                                <td>设置用户的邮箱</td>
-                                                <td width="2%">&nbsp;</td>
-                                            </tr>
                                             <tr>
                                                 <td>&nbsp;</td>
                                                 <td colspan="3"><input class="btn" type="submit"

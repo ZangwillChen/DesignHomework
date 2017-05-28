@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%
-    String path = request.getContextPath();
-%>
+         pageEncoding="utf-8"%> <%@ taglib prefix="s" uri="/struts-tags"%>
+<%String path = request.getContextPath();%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,7 +18,7 @@
             <table width="100%" height="31" border="0" cellpadding="0"
                    cellspacing="0" background="./../Images//content_bg.gif">
                 <tr>
-                    <td height="31"><div class="title1">管理员添加</div></td>
+                    <td height="31"><div class="title1">管理员列表</div></td>
                 </tr>
             </table>
         </td>
@@ -48,7 +45,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以添加用户！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看管理员列表！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -71,49 +68,38 @@
                         <table width="100%">
                             <tr>
                                 <td colspan="2">
-                                    <s:form action="admin_adminAdd" method="post">
-                                        <table width="100%" class="cont">
+                                    <table class="defaultlist">
+                                        <col width="10%">
+                                        <col width="10%">
+                                        <col width="20%">
+                                        <col width="20%">
+                                        <col width="15%">
+                                        <tr class="title">
+                                            <td>用户ID</td>
+                                            <td>用户名</td>
+                                            <td>电话号码</td>
+                                            <td>邮箱</td>
+                                            <td>操作</td>
+                                        </tr>
+                                        <!-- 遍历开始 -->
+                                        <s:iterator value="#session.adminList" var="admin">
                                             <tr>
-                                                <td width="2%">&nbsp;</td>
-                                                <td width="15%">用户名：</td>
-                                                <td width="25%"><input class="text" type="text"
-                                                                       name="adminName"/></td>
-                                                <td>设置用户名</td>
-                                                <td width="2%">&nbsp;</td>
+                                                <td><s:property value="#admin.adminID" /></td>
+                                                <td><s:property value="#admin.adminName" /></td>
+                                                <td><s:property value="#admin.adminPhone" /></td>
+                                                <td><s:property value="#admin.adminEmail" /></td>
+                                                <td><a
+                                                        href="<%=path%>/admin/admin_adminDelete.action?adminID=<s:property value=" #admin.adminID"/>"
+                                                        onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
                                             </tr>
-                                            <tr>
-                                                <td width="2%">&nbsp;</td>
-                                                <td width="15%">密码：</td>
-                                                <td width="25%"><input class="text" type="text"
-                                                                       name="adminPassword"  /></td>
-                                                <td>设置用户的登录密码</td>
-                                                <td width="2%">&nbsp;</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td width="2%">&nbsp;</td>
-                                                <td width="15%">电话号码：</td>
-                                                <td width="25%"><input class="text" type="text"
-                                                                       name="adminPhone" /></td>
-                                                <td>设置设置用户的电话号码</td>
-                                                <td width="2%">&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td width="2%">&nbsp;</td>
-                                                <td width="15%">用户邮箱：</td>
-                                                <td width="25%"><input class="text" type="text"
-                                                                       name="adminEmail" /></td>
-                                                <td>设置用户的邮箱</td>
-                                                <td width="2%">&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td colspan="3"><input class="btn" type="submit"
-                                                                       value="提交" /></td>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </s:form>
+                                        </s:iterator>
+                                        <!-- 遍历结束 -->
+                                    </table> <!-- 其他功能超链接 -->
+                                    <div id="TableTail">
+                                        <div id="TableTail_inside">
+                                            <input type="button" onclick="location.href='admin_add.jsp'" value="新建"/>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         </table>

@@ -12,7 +12,7 @@
 
 <div id="header">
     <div class="header_title">
-        <span class="title_con">实验室预约管理系统</span>
+        <span class="title_con">教室预约管理系统</span>
     </div>
 </div>
 
@@ -23,18 +23,18 @@
                 <span class="con_title_sp">欢迎登录后台管理系统</span>
             </div>
             <div class="con_panel">
-                <form action="admin_logon" method="post">
+                <s:form action="admin_logon" method="post">
                     <div class="con_input">
-                        <span>用户名：</span><input type="text" name="admin.adminName"
+                        <span>用户名：</span><input type="text" name="adminName"
                                                 placeholder="工号" />
                     </div>
                     <div class="con_input">
                         <span>密&nbsp;&nbsp;&nbsp;&nbsp;码：</span><input type="password"
-                                                                       name="admin.adminPassword" placeholder="密码" />
+                                                                       name="adminPassword" placeholder="密码" />
                     </div>
                     <input type="submit" value="登    录" class="submit-btn" />
 
-                </form>
+                </s:form>
             </div>
         </div>
     </div>
