@@ -21,7 +21,6 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
     private static final long serialVersionUID = 1L;
 
     RoomTimeTable roomTimeTable =new RoomTimeTable();
-    @Autowired
     @Resource
     RoomTimeTableService roomTimeTableService;
 
@@ -31,9 +30,9 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
      *
      */
     public interface roomtbStatus {
-        public final String unhandle = "已申请";
-        public final String handle = "已处理";
-        public final String finished = "已完成";
+        public final String unhandle = "unhandle";
+        public final String handle = "handle";
+        public final String finished = "finished";
     }
 
     /**
@@ -42,16 +41,19 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
      */
 
     public String roomNotHandleListUI(){
-        List<RoomTimeTable> roomTimeTableList = roomTimeTableService.getAllByStatus(roomtbStatus.unhandle);
-        Iterator<RoomTimeTable> ite = roomTimeTableList.iterator();
+        List<RoomTimeTable> roomtbList = roomTimeTableService.getAllByStatus(roomtbStatus.unhandle);
+        Iterator<RoomTimeTable> ite = roomtbList.iterator();
         while (ite.hasNext()){
             RoomTimeTable str = ite.next();
+            System.out.println(str.getRoomTimeTableID());
             System.out.println(str.getUser().getUserName());
-            System.out.println(str.getUser().getUserPhone());
+            System.out.println(str.getRoom().getRoomName());
             System.out.println(str.getRoomTimeTableWeek());
             System.out.println(str.getRoomTime());
-        }
-        request.setAttribute("roomTimeTableList",roomTimeTableList);
+       }
+       if (roomtbList != null && roomtbList.size() > 0) {
+           session.setAttribute("roomTimeTableList", roomtbList);
+       }
         return "roomNotHandleListUI";
     }
 
@@ -82,16 +84,8 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
 
     public String roomHandleListUI() {
 
-        List<RoomTimeTable> roomTimeTableList = roomTimeTableService.getAllByStatus(roomtbStatus.handle);
-        Iterator<RoomTimeTable> ite = roomTimeTableList.iterator();
-        while (ite.hasNext()){
-            RoomTimeTable str = ite.next();
-            System.out.println(str.getUser().getUserName());
-            System.out.println(str.getUser().getUserPhone());
-            System.out.println(str.getRoomTimeTableWeek());
-            System.out.println(str.getRoomTime());
-        }
-        request.setAttribute("roomTimeTableList",roomTimeTableList);
+        List<RoomTimeTable> roomtbList = roomTimeTableService.getAllByStatus(roomtbStatus.handle);
+        request.setAttribute("roomTimeTableList", roomtbList);
         return "roomTimeTableListUI";
     }
     /**
@@ -110,16 +104,10 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
      * @return
      */
     public String roomFinishedListUI() {
-        List<RoomTimeTable> roomTimeTableList = roomTimeTableService.getAllByStatus(roomtbStatus.finished);
-        Iterator<RoomTimeTable> ite = roomTimeTableList.iterator();
-        while (ite.hasNext()){
-            RoomTimeTable str = ite.next();
-            System.out.println(str.getUser().getUserName());
-            System.out.println(str.getUser().getUserPhone());
-            System.out.println(str.getRoomTimeTableWeek());
-            System.out.println(str.getRoomTime());
-        }
-        request.setAttribute("roomTimeTableList",roomTimeTableList);
+        List<RoomTimeTable> roomtbList = roomTimeTableService.getAllByStatus(roomtbStatus.finished);
+        Iterator<RoomTimeTable> ite = roomtbList.iterator();
+
+        request.setAttribute("roomTimeTableList", roomtbList);
         return "roomFinishedListUI";
     }
     /**
@@ -146,11 +134,4 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
         this.roomTimeTable = roomTimeTable;
     }
 
-    public RoomTimeTableService getRoomTimeTableService() {
-        return roomTimeTableService;
-    }
-
-    public void setRoomTimeTableService(RoomTimeTableService roomTimeTableService) {
-        this.roomTimeTableService = roomTimeTableService;
-    }
 }

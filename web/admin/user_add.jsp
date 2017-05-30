@@ -71,7 +71,7 @@
                         <table width="100%">
                             <tr>
                                 <td colspan="2">
-                                    <s:form action="user_userAdd" method="get">
+                                    <s:form action="user_userAdd" method="post">
                                         <table width="100%" class="cont">
                                             <tr>
                                                 <td width="2%">&nbsp;</td>
@@ -89,6 +89,25 @@
                                                 <td>设置登录密码</td>
                                                 <td width="2%">&nbsp;</td>
                                             </tr>
+
+                                            <tr>
+                                                <td width="2%">&nbsp;</td>
+                                                <td width="15%">手机：</td>
+                                                <td width="25%"><input class="text" type="text"
+                                                                       name="userPhone"  /></td>
+                                                <td>设置手机号</td>
+                                                <td width="2%">&nbsp;</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td width="2%">&nbsp;</td>
+                                                <td width="15%">电子邮箱：</td>
+                                                <td width="25%"><input class="text" type="text"
+                                                                       name="userEmail"  /></td>
+                                                <td>设置电子邮箱</td>
+                                                <td width="2%">&nbsp;</td>
+                                            </tr>
+
                                             <tr>
                                                 <td width="2%">&nbsp;</td>
                                                 <td width="15%">用户类型：</td>

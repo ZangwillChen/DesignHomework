@@ -18,7 +18,7 @@
             <table width="100%" height="31" border="0" cellpadding="0"
                    cellspacing="0" background="./../Images//content_bg.gif">
                 <tr>
-                    <td height="31"><div class="title1">用户列表</div></td>
+                    <td height="31"><div class="title1">教室列表</div></td>
                 </tr>
             </table>
         </td>
@@ -45,7 +45,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看用户列表！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看教室列表！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -69,29 +69,30 @@
                             <tr>
                                 <td colspan="2">
                                     <table class="defaultlist">
-                                        <col width="10%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
+                                        <col width="20%">
+                                        <col width="20">
+                                        <col width="20%">
+                                        <col width="20%">
+                                        <col width="20">
                                         <tr class="title">
-                                            <td>用户类型</td>
-                                            <td>用户名</td>
-                                            <td>电话号码</td>
-                                            <td>邮箱</td>
-                                            <td>操作</td>
+                                            <td>教室ID</td>
+                                            <td>教室位置名称</td>
+                                            <td>教室状态</td>
+                                            <td>教室等级</td>
+                                            <td>教室操作</td>
                                         </tr>
                                         <!-- 遍历开始 -->
-                                        <s:iterator value="#session.userList" var="user">
+                                        <s:iterator value="#session.roomList" var="room">
                                             <tr>
-                                                <td><s:property value="#user.userType.roleName" /></td>
-                                                <td><s:property value="#user.userName" /></td>
-                                                <td><s:property value="#user.userPhone" /></td>
-                                                <td><s:property value="#user.userEmail" /></td>
+                                                <td><s:property value="#room.roomID" /></td>
+                                                <td><s:property value="#room.roomName" /></td>
+                                                <td><s:property value="#room.roomStatus" /></td>
+                                                <td><s:property value="#rooom.roomtype"/> </td>
                                                 <td><a
-                                                        href="<%=path%>/admin/user_userDelete.action?userID=<s:property value=" #user.userID"/>"
+                                                       href="<%=path%>/admin/room_roomEdit.action?roomID=<s:property value="#room.roomID"/>"
+                                                        onclick="javascript: return confirm('确认要修改吗？');">修改 </a></td>
+                                                <td><a
+                                                        href="<%=path%>/admin/room_roomDelete.action?roomID=<s:property value="#room.roomID"/>"
                                                         onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
                                             </tr>
                                         </s:iterator>
@@ -99,7 +100,7 @@
                                     </table> <!-- 其他功能超链接 -->
                                     <div id="TableTail">
                                         <div id="TableTail_inside">
-                                            <input type="button" onclick="location.href='user_add.jsp'" value="新建"/>
+                                            <input type="button" onclick="location.href='room_add.jsp'" value="新建"/>
                                         </div>
                                     </div>
                                 </td>

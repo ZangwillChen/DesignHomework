@@ -25,7 +25,6 @@ public class RoomAction extends BaseAction implements ModelDriven<Room> {
     Room room = new Room();
     User user = new User();
     Admin admin = new Admin();
-    @Autowired
     @Resource
     RoomService roomService;
     UserService userService;
@@ -35,7 +34,7 @@ public class RoomAction extends BaseAction implements ModelDriven<Room> {
      * @return
      */
 
-    public String roomListUI(Admin admin) {
+    public String roomListUI() {
         List<Room> roomList = roomService.getRoomList();
         session.setAttribute("roomList",roomList);
         return "roomListUI";
@@ -72,7 +71,7 @@ public class RoomAction extends BaseAction implements ModelDriven<Room> {
      */
     public String roomEdit(){
 
-        System.out.println("(房间修改信息)房间ID"+room.getRoomStatus());
+        System.out.println("(房间修改信息)房间ID"+room.getRoomID());
         Room editRoom = roomService.getById(room.getRoomID());
 
         if (editRoom != null) {
@@ -115,11 +114,4 @@ public class RoomAction extends BaseAction implements ModelDriven<Room> {
         this.room = room;
     }
 
-    public RoomService getRoomService() {
-        return roomService;
-    }
-
-    public void setRoomService(RoomService roomService) {
-        this.roomService = roomService;
-    }
 }

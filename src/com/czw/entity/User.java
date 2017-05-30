@@ -14,21 +14,18 @@ public class User {
     private String userPassword;
     private String userPhone;
     private String userEmail;
-    private String ReserveInf;  //用户的个人预约信息，此处可以存储revID
     private Role userType;
 
     public User(){
 
     }
 
-    public User(long userID,String userName,String userPassword,
-                String userPhone,String userEmail,String ReserveInf,Role userType){
+    public User(long userID, String userName, String userPassword, String userPhone, String userEmail, Role userType) {
         this.userID = userID;
         this.userName = userName;
         this.userPassword = userPassword;
         this.userPhone = userPhone;
         this.userEmail = userEmail;
-        this.ReserveInf = ReserveInf;
         this.userType = userType;
     }
 
@@ -70,14 +67,6 @@ public class User {
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
-    }
-
-    public String getReserveInf() {
-        return ReserveInf;
-    }
-
-    public void setReserveInf(String reserveInf) {
-        ReserveInf = reserveInf;
     }
 
     public Role getUserType() {

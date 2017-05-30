@@ -36,15 +36,35 @@
 
 
     <!--系统管理员 用户 -->
-    <package name="studentAction" namespace="/admin" extends="default">
+    <package name="userAction" namespace="/admin" extends="default">
         <action name="user_*" class="UserAction" method="{1}">
             <result name="userListUI">/admin/user_list.jsp</result>
             <result name="toUserListUI">/admin/user_list.jsp
             </result>
-            <result name="toUserList" type="redirect">user_userListUI
+            <result name="toUserList" type="redirect">/admin/user_list.jsp
             </result>
             <result name="userAddUI">/admin/user_add.jsp</result>
         </action>
     </package>
 
+    <package name="roomAction" namespace="/admin" extends="default">
+        <action name="room_*" class="RoomAction" method="{1}">
+            <result name="roomListUI">/admin/room_list.jsp</result>
+            <result name="roomAddUI">/admin/room_add.jsp</result>
+            <result name="toRoomListUI" type="redirect">/admin/room_list.jsp</result>
+        </action>
+    </package>
+
+    <package name="roomTimeTableAction" namespace="/admin" extends="default">
+        <action name="roomttable_*" class="RoomTimeTableAction" method="{1}">
+            <result name="roomNotHandleListUI">/admin/roomtimetableunhandl_list.jsp</result>
+            <result name="toRoomNotHandleListUI" type="redirect">/admin/roomtimetableunhandl_list.jsp</result>
+
+            <result name="roomHandleListUI">/admin/roomtimetablehandl_list.jsp</result>
+            <result name="toRoomHandleListUI" type="redirect">/admin/roomtimetablehandl_list.jsp</result>
+
+            <result name="roomFinishedListUI">/admin/roomtimetablefinished_list.jsp</result>
+            <result name="toRoomFinishedListUI" type="redirect">admin/roomtimetablefinished_list.jsp</result>
+        </action>
+    </package>
 </struts>

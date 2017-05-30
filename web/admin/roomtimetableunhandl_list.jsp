@@ -45,7 +45,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看用户列表！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看待处理预约列表！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -77,31 +77,30 @@
                                         <col width="15%">
                                         <col width="15%">
                                         <tr class="title">
-                                            <td>用户类型</td>
-                                            <td>用户名</td>
-                                            <td>电话号码</td>
-                                            <td>邮箱</td>
-                                            <td>操作</td>
+                                            <td>时间表ID</td>
+                                            <td>借教室人</td>
+                                            <td>教室</td>
+                                            <td>周次</td>
+                                            <td>时间</td>
+                                            <td>相关操作</td>
                                         </tr>
                                         <!-- 遍历开始 -->
-                                        <s:iterator value="#session.userList" var="user">
+                                        <s:iterator value="#session.roomtbList" var="roomtb">
                                             <tr>
-                                                <td><s:property value="#user.userType.roleName" /></td>
-                                                <td><s:property value="#user.userName" /></td>
-                                                <td><s:property value="#user.userPhone" /></td>
-                                                <td><s:property value="#user.userEmail" /></td>
+                                                <td><s:property value="#roomtb.roomTimeTableID" /></td>
+                                                <td><s:property value="#roomtb.user.userName" /></td>
+                                                <td><s:property value="#roomtb.room.roomName" /></td>
+                                                <td><s:property value="#roomtb.roomTimeTableWeek" /></td>
+                                                <td><s:property value="#roomtb.roomTime" /></td>
                                                 <td><a
-                                                        href="<%=path%>/admin/user_userDelete.action?userID=<s:property value=" #user.userID"/>"
-                                                        onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
+                                                        href="<%=path%>/admin/labttable_labReserveConfirm.action?labTimeTableId=<s:property value=" #labtb.labTimeTableId"/>"
+                                                        onclick="javascript: return confirm('需要确认预约吗？');">确认</a>&nbsp;&nbsp;&nbsp;
+                                                    <a href="<%=path%>/admin/labttable_labNotHandleDelete.action?labTimeTableId=<s:property value=" #labtb.labTimeTableId"/>"
+                                                       onclick="javascript: return confirm('需要删除预约吗？');">删除</a></td>
                                             </tr>
                                         </s:iterator>
                                         <!-- 遍历结束 -->
                                     </table> <!-- 其他功能超链接 -->
-                                    <div id="TableTail">
-                                        <div id="TableTail_inside">
-                                            <input type="button" onclick="location.href='user_add.jsp'" value="新建"/>
-                                        </div>
-                                    </div>
                                 </td>
                             </tr>
                         </table>

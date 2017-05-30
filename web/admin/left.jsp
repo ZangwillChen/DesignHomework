@@ -64,7 +64,7 @@
                     <ul class="RM">
                         <li><a href="./roomttable_roomNotHandleListUI.action" target="main">待处理预约</a></li>
                         <li><a href="./roomttable_roomHandleListUI.action" target="main">已处理预约</a></li>
-                        <li><a href="./roomttable_roomFinishedListUI.action" target="main">已完成实验</a></li>
+                        <li><a href="./roomttable_roomFinishedListUI.action" target="main">已完成</a></li>
                     </ul>
                 </div>
                 <!-- *********** -->

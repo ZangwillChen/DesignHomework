@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8"%> <%@ taglib prefix="s" uri="/struts-tags"%>
-<%String path = request.getContextPath();%>
+         pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+    String path = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +21,7 @@
             <table width="100%" height="31" border="0" cellpadding="0"
                    cellspacing="0" background="./../Images//content_bg.gif">
                 <tr>
-                    <td height="31"><div class="title1">用户列表</div></td>
+                    <td height="31"><div class="title1">管理员修改</div></td>
                 </tr>
             </table>
         </td>
@@ -45,7 +48,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看用户列表！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以编辑个人信息！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -68,40 +71,54 @@
                         <table width="100%">
                             <tr>
                                 <td colspan="2">
-                                    <table class="defaultlist">
-                                        <col width="10%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <tr class="title">
-                                            <td>用户类型</td>
-                                            <td>用户名</td>
-                                            <td>电话号码</td>
-                                            <td>邮箱</td>
-                                            <td>操作</td>
-                                        </tr>
-                                        <!-- 遍历开始 -->
-                                        <s:iterator value="#session.userList" var="user">
+                                    <form action="room_roomEdit" method="post">
+
+                                        <table width="100%" class="cont">
+                                            <s:iterator value="#session.editRoom">
+                                                <tr>
+                                                    <td width="2%">&nbsp;</td>
+                                                    <td width="15%">用户ID：</td>
+                                                    <td width="25%"><input class="text" type="text"
+                                                                           name="roomID" value="${editRoom.roomID}" readonly="readonly"/></td>
+                                                    <td>房间ID不能设置</td>
+                                                    <td width="2%">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="2%">&nbsp;</td>
+                                                    <td width="15%">房间名：</td>
+                                                    <td width="25%"><input class="text" type="text"
+                                                                           name="roomName" value="${editRoom.roomName}"/></td>
+                                                    <td>设置用户名</td>
+                                                    <td width="2%">&nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td width="2%">&nbsp;</td>
+                                                    <td width="15%">房间状态：</td>
+                                                    <td width="25%"><input class="text" type="text"
+                                                                           name="roomStatus" value="${editRoom.roomStatus}"/></td>
+                                                    <td>设置房间状态</td>
+                                                    <td width="2%">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="2%">&nbsp;</td>
+                                                    <td width="15%">房间类型：</td>
+                                                    <td width="25%"><input class="text" type="text"
+                                                                           name="roomtype" value="${editRoom.roomtype}"/></td>
+                                                    <td>设置房间类型</td>
+                                                    <td width="2%">&nbsp;</td>
+                                                </tr>
+                                            </s:iterator>
                                             <tr>
-                                                <td><s:property value="#user.userType.roleName" /></td>
-                                                <td><s:property value="#user.userName" /></td>
-                                                <td><s:property value="#user.userPhone" /></td>
-                                                <td><s:property value="#user.userEmail" /></td>
-                                                <td><a
-                                                        href="<%=path%>/admin/user_userDelete.action?userID=<s:property value=" #user.userID"/>"
-                                                        onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
+                                                <td>&nbsp;</td>
+                                                <td colspan="3"><input class="btn" type="submit"
+                                                                       value="提交" /></td>
+                                                <td>&nbsp;</td>
                                             </tr>
-                                        </s:iterator>
-                                        <!-- 遍历结束 -->
-                                    </table> <!-- 其他功能超链接 -->
-                                    <div id="TableTail">
-                                        <div id="TableTail_inside">
-                                            <input type="button" onclick="location.href='user_add.jsp'" value="新建"/>
-                                        </div>
-                                    </div>
+
+                                        </table>
+
+                                    </form>
                                 </td>
                             </tr>
                         </table>

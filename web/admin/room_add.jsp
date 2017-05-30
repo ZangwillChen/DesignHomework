@@ -1,6 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8"%> <%@ taglib prefix="s" uri="/struts-tags"%>
-<%String path = request.getContextPath();%>
+<%--
+  Created by IntelliJ IDEA.
+  User: chenzhaowen
+  Date: 2017/5/29
+  Time: 下午3:20
+  To change this template use File | Settings | File Templates.
+--%>
+<<%@ page language="java" contentType="text/html; charset=utf-8"
+          pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+    String path = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +28,7 @@
             <table width="100%" height="31" border="0" cellpadding="0"
                    cellspacing="0" background="./../Images//content_bg.gif">
                 <tr>
-                    <td height="31"><div class="title1">用户列表</div></td>
+                    <td height="31"><div class="title1">教室添加</div></td>
                 </tr>
             </table>
         </td>
@@ -45,7 +55,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看用户列表！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以添加教室！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -68,40 +78,43 @@
                         <table width="100%">
                             <tr>
                                 <td colspan="2">
-                                    <table class="defaultlist">
-                                        <col width="10%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <tr class="title">
-                                            <td>用户类型</td>
-                                            <td>用户名</td>
-                                            <td>电话号码</td>
-                                            <td>邮箱</td>
-                                            <td>操作</td>
-                                        </tr>
-                                        <!-- 遍历开始 -->
-                                        <s:iterator value="#session.userList" var="user">
+                                    <s:form action="room_roomAdd" method="post">
+                                        <table width="100%" class="cont">
                                             <tr>
-                                                <td><s:property value="#user.userType.roleName" /></td>
-                                                <td><s:property value="#user.userName" /></td>
-                                                <td><s:property value="#user.userPhone" /></td>
-                                                <td><s:property value="#user.userEmail" /></td>
-                                                <td><a
-                                                        href="<%=path%>/admin/user_userDelete.action?userID=<s:property value=" #user.userID"/>"
-                                                        onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
+                                                <td width="2%">&nbsp;</td>
+                                                <td width="15%">教室名称：</td>
+                                                <td width="25%"><input class="text" type="text"
+                                                                       name="roomName"/></td>
+                                                <td>添加教室</td>
+                                                <td width="2%">&nbsp;</td>
                                             </tr>
-                                        </s:iterator>
-                                        <!-- 遍历结束 -->
-                                    </table> <!-- 其他功能超链接 -->
-                                    <div id="TableTail">
-                                        <div id="TableTail_inside">
-                                            <input type="button" onclick="location.href='user_add.jsp'" value="新建"/>
-                                        </div>
-                                    </div>
+
+                                                <tr>
+                                                    <td width="2%">&nbsp;</td>
+                                                    <td width="15%">教室状态：</td>
+                                                    <td width="25%"><input class="text" type="text"
+                                                                           name="roomStatus"/></td>
+                                                    <td>是否停用</td>
+                                                    <td width="2%">&nbsp;</td>
+                                                </tr>
+
+                                            <tr>
+                                                <td width="2%">&nbsp;</td>
+                                                <td width="15%">教室等级：</td>
+                                                <td width="25%"><input class="text" type="text"
+                                                                       name="roomtype"/></td>
+                                                <td>数字越大等级越高</td>
+                                                <td width="2%">&nbsp;</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td colspan="3"><input class="btn" type="submit"
+                                                                       value="提交" /></td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </s:form>
                                 </td>
                             </tr>
                         </table>
@@ -125,7 +138,7 @@
                             src="../Images//icon_mail.gif" width="16" height="11">
                         服务邮箱：<br /> <img
                                 src="../Images//icon_phone.gif" width="17" height="14">
-                        服务电话：<a href="http://www.mycodes.net/" target="_blank"></a></td>
+                        服务电话：<a href="http://www.mycodes.net/" target="_blank">13512929571</a></td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>

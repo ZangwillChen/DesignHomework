@@ -16,17 +16,12 @@
         not-null="true">
             <column name="u_password"/>
         </property>
-        <property name="userPhone" type="java.lang.String" length="50"
-                  not-null="true">
+        <property name="userPhone" type="java.lang.String" length="50">
             <column name="u_phone"/>
         </property>
         <property name="userEmail" type="java.lang.String" length="50"
                   not-null="false">
             <column name="u_email"/>
-        </property>
-        <property name="reserveInf" type="java.lang.String" length="200"
-                  not-null="false">
-            <column name="u_res"/>
         </property>
 
         <!-- User与Role 为多对一关系映射，Role与User为一对多关系映射，在这种关系中，User 表中的一行可以匹配 Role 表中的多行，

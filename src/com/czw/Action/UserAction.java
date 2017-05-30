@@ -150,7 +150,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
      * @return
      */
     public String userAddUI() {
-        return "teacherAddUI";
+        return "userAddUI";
     }
 
     /**

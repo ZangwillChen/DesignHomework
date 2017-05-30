@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -22,12 +23,17 @@ public class RoomTimeTableDaoImpl extends BaseDaoImpl<RoomTimeTable> implements 
     @SuppressWarnings("unchecked")
     @Override
     public List<RoomTimeTable> getAllByStatus(String unhandle){
-        List<RoomTimeTable> roomTimeTableList = null;
+        List<RoomTimeTable> roomtbList = null;
         Session session = getSession();
         Query query = session.createQuery("FROM RoomTimeTable roomtimetable WHERE roomtimetable.roomStatus=?");
         query.setParameter(0,unhandle);
-        roomTimeTableList = (List<RoomTimeTable>) query.list();
-        return roomTimeTableList;
+        roomtbList = (List<RoomTimeTable>) query.list();
+       Iterator<RoomTimeTable> ite = roomtbList.iterator();
+       while (ite.hasNext()) {
+           RoomTimeTable roomtable = ite.next();
+           System.out.println("预约用户的名字" + roomtable.getUser().getUserName());
+        }
+        return roomtbList;
     }
 
     @Override

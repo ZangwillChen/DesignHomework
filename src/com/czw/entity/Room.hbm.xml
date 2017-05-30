@@ -6,7 +6,7 @@
     <class name="com.czw.entity.Room" table="tb_room">
         <id name="roomID" type="java.lang.Long" >
             <column name="room_id" />
-            <generator class="increment"/>
+            <generator class="native"/>
         </id>
 
         <property name="roomName" type="java.lang.String" length="50"
