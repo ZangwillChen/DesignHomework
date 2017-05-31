@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8"%> <%@ taglib prefix="s" uri="/struts-tags"%>
-<%String path = request.getContextPath();%>
+         pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+    String path = request.getContextPath();
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +22,7 @@
             <table width="100%" height="31" border="0" cellpadding="0"
                    cellspacing="0" background="./../Images//content_bg.gif">
                 <tr>
-                    <td height="31"><div class="title1">用户列表</div></td>
+                    <td height="31"><div class="title1">用户信息</div></td>
                 </tr>
             </table>
         </td>
@@ -45,7 +49,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看待处理预约列表！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看个人信息！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -68,39 +72,52 @@
                         <table width="100%">
                             <tr>
                                 <td colspan="2">
-                                    <table class="defaultlist">
-                                        <col width="10%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <col width="15%">
-                                        <tr class="title">
-                                            <td>时间表ID</td>
-                                            <td>借教室人</td>
-                                            <td>教室</td>
-                                            <td>周次</td>
-                                            <td>时间</td>
-                                            <td>相关操作</td>
-                                        </tr>
-                                        <!-- 遍历开始 -->
-                                        <s:iterator value="#request.roomtbList" var="roomtb">
+                                    <table width="100%" class="cont">
+                                        <s:iterator value="#session.ulogin">
                                             <tr>
-                                                <td><s:property value="#roomtb.roomTimeTableID" /></td>
-                                                <td><s:property value="#roomtb.user.userName" /></td>
-                                                <td><s:property value="#roomtb.room.roomName" /></td>
-                                                <td><s:property value="#roomtb.roomTimeTableWeek" /></td>
-                                                <td><s:property value="#roomtb.roomTime" /></td>
+                                                <td width="20%">&nbsp;</td>
+                                                <td width="15%">用户ID：</td>
+                                                <td width="25%">${ulogin.userID}</td>
+                                                <td></td>
+                                                <td width="2%">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="20%">&nbsp;</td>
+                                                <td width="15%">用户名：</td>
+                                                <td width="25%">${ulogin.userName}</td>
+                                                <td></td>
+                                                <td width="2%">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="20%">&nbsp;</td>
+                                                <td width="15%">密码：</td>
+                                                <td width="25%">${ulogin.userPassword}</td>
+                                                <td></td>
+                                                <td width="2%">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="20%">&nbsp;</td>
+                                                <td width="15%">电话号码：</td>
+                                                <td width="25%">${ulogin.userPhone}</td>
+                                                <td></td>
+                                                <td width="2%">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="20%">&nbsp;</td>
+                                                <td width="15%">用户邮箱：</td>
+                                                <td width="25%">${ulogin.userEmail}</td>
+                                                <td></td>
+                                                <td width="2%">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
                                                 <td><a
-                                                        href="<%=path%>/admin/roomttable_roomReserveConfirm.action?roomTimeTableID=<s:property value=" #roomtb.roomTimeTableID"/>"
-                                                        onclick="javascript: return confirm('需要确认预约吗？');">确认</a>&nbsp;&nbsp;&nbsp;
-                                                    <a href="<%=path%>/admin/roomttable_roomNotHandleDelete.action?roomTimeTableID=<s:property value=" #roomtb.roomTimeTableID"/>"
-                                                       onclick="javascript: return confirm('需要删除预约吗？');">删除</a></td>
+                                                        href="<%=path%>/user/user_userEditUI.action?userID=%{ulogin.userID}"
+                                                        onclick="javascript: return confirm('要修改吗？');">修改</a></td>
+                                                <td>&nbsp;</td>
                                             </tr>
                                         </s:iterator>
-                                        <!-- 遍历结束 -->
-                                    </table> <!-- 其他功能超链接 -->
+                                    </table>
                                 </td>
                             </tr>
                         </table>

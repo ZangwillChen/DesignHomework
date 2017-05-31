@@ -147,7 +147,7 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
 
             loginAdmin = editAdmin;
             session.putValue("adminName",loginAdmin.getAdminName());
-            session.setAttribute("logAdmin",loginAdmin);
+            session.setAttribute("loginAdmin",loginAdmin);
 
             System.out.println("编译之后:"+editAdmin.getAdminPhone());
             return "toAdminInfoUI";

@@ -5,7 +5,6 @@ import com.czw.entity.ReserveInfo;
 import com.czw.entity.ReserveInfoSearch;
 import com.czw.entity.User;
 import com.opensymphony.xwork2.ModelDriven;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -34,16 +33,18 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
      * @brief 用户登录
      * @return
      */
-    public String userLogin(){
-        System.out.println("(用户登录)用户名"+user.getUserName()+"用户密码"+user.getUserPassword());
+    @SuppressWarnings("deprecation")
+    public String logon() throws Exception{
+        System.out.println("(管理员登录)用户名密码和ID:"+user.getUserName()+user.getUserPassword()+user.getUserID());
         User ulogin = userService.user_login(user.getUserName(),user.getUserPassword());
-
         if (ulogin != null){
-            session.setAttribute("userName",ulogin.getUserName());
+            session.putValue("userName",ulogin.getUserName());
             session.setAttribute("ulogin",ulogin);
-            return "userLogin";
+        } else {
+            return "toUserLogin";  // 返回后台登录页面
         }
-        return "toUserLogin";
+        return "userLogin";
+
     }
 
     /**
@@ -78,7 +79,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 
             userService.user_edit_update(editUser);
             userUpdateInfo = editUser;
-            session.setAttribute("userUpdeteInfo",userUpdateInfo);
+            session.setAttribute("ulogin",userUpdateInfo);
             return "toUserInfoUI";
         }
         return "ERROR";
@@ -96,16 +97,15 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
      * @return
      */
     public String userReserveSearch() {
-        String soUserName = request.getParameter("soUserName");
         String roomName = request.getParameter("roomName");
         String courseTime = request.getParameter("courseTime");
         String roomTime = request.getParameter("roomTime");
 
         User user = (User) session.getAttribute("ulogin");
-       // int userTypeNum = user.getUserType().getPermission();
+        int userTypeNum = user.getUserType().getPermission();
         long userID = user.getUserID();
         String week = "";
-        System.out.println("(预约查询)查询信息"+soUserName+roomName+courseTime+roomTime+userID);
+        System.out.println("(预约查询)查询信息"+roomName+courseTime+roomTime+userID);
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         // 字符串格式转化为日期格式并获取星期数
         try {
@@ -117,7 +117,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
             e.printStackTrace();
         }
         // 初始化查询条件
-        ReserveInfoSearch reserveInfoSearch = new ReserveInfoSearch(soUserName,roomName,courseTime,roomTime,week);
+        ReserveInfoSearch reserveInfoSearch = new ReserveInfoSearch(roomName,courseTime,roomTime,week);
         // 执行查询并返回结果
         ReserveInfo reserveInfo = userService.getReserveInfoList(reserveInfoSearch);
         session.setAttribute("reserveInfo",reserveInfo);

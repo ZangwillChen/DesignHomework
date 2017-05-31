@@ -41,7 +41,7 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
      */
 
     public String roomNotHandleListUI(){
-        List<RoomTimeTable> roomtbList = roomTimeTableService.getAllByStatus(roomtbStatus.unhandle);
+        List<RoomTimeTable> roomtbList = roomTimeTableService.getRoomTimeTableList(roomtbStatus.unhandle);
         Iterator<RoomTimeTable> ite = roomtbList.iterator();
         while (ite.hasNext()){
             RoomTimeTable str = ite.next();
@@ -51,9 +51,9 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
             System.out.println(str.getRoomTimeTableWeek());
             System.out.println(str.getRoomTime());
        }
-       if (roomtbList != null && roomtbList.size() > 0) {
-           session.setAttribute("roomTimeTableList", roomtbList);
-       }
+       //if (roomtbList != null && roomtbList.size() > 0) {
+           request.setAttribute("roomtbList", roomtbList);
+      // }
         return "roomNotHandleListUI";
     }
 
@@ -63,7 +63,7 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
      */
 
     public String roomReserveConfirm(){
-        roomTimeTableService.confirmUnhanleRoom(roomTimeTable.getRoomTimeTableID(),roomtbStatus.handle);
+        roomTimeTableService.confirmUnhandleRoom(roomTimeTable.getRoomTimeTableID(),roomtbStatus.handle);
         return "toRoomNotHandleListUI";
     }
 
@@ -84,9 +84,18 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
 
     public String roomHandleListUI() {
 
-        List<RoomTimeTable> roomtbList = roomTimeTableService.getAllByStatus(roomtbStatus.handle);
-        request.setAttribute("roomTimeTableList", roomtbList);
-        return "roomTimeTableListUI";
+        List<RoomTimeTable> roomtbList = roomTimeTableService.getRoomTimeTableList(roomtbStatus.handle);
+        Iterator<RoomTimeTable> ite = roomtbList.iterator();
+        while (ite.hasNext()){
+            RoomTimeTable str = ite.next();
+            System.out.println(str.getRoomTimeTableID());
+            System.out.println(str.getUser().getUserName());
+            System.out.println(str.getRoom().getRoomName());
+            System.out.println(str.getRoomTimeTableWeek());
+            System.out.println(str.getRoomTime());
+        }
+        request.setAttribute("roomtbList", roomtbList);
+        return "roomHandleListUI";
     }
     /**
      * @brief 已处理预约删除
@@ -104,10 +113,18 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
      * @return
      */
     public String roomFinishedListUI() {
-        List<RoomTimeTable> roomtbList = roomTimeTableService.getAllByStatus(roomtbStatus.finished);
+        List<RoomTimeTable> roomtbList = roomTimeTableService.getRoomTimeTableList(roomtbStatus.finished);
         Iterator<RoomTimeTable> ite = roomtbList.iterator();
+        while (ite.hasNext()){
+            RoomTimeTable str = ite.next();
+            System.out.println(str.getRoomTimeTableID());
+            System.out.println(str.getUser().getUserName());
+            System.out.println(str.getRoom().getRoomName());
+            System.out.println(str.getRoomTimeTableWeek());
+            System.out.println(str.getRoomTime());
+        }
 
-        request.setAttribute("roomTimeTableList", roomtbList);
+        request.setAttribute("roomtbList", roomtbList);
         return "roomFinishedListUI";
     }
     /**

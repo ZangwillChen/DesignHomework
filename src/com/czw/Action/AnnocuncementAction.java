@@ -44,7 +44,7 @@ public class AnnocuncementAction extends BaseAction implements ModelDriven<Annou
 
     public String annoSeeUI() {
         Announcement annoSee = announcementService.getAnnoById(anno.getAnnoID());
-        session.setAttribute("annpSee",annoSee);
+        session.setAttribute("annoSee",annoSee);
         return "annoSeeUI";
     }
     /**

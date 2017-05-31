@@ -9,9 +9,9 @@ import java.util.List;
  * Created by chenzhaowen on 2017/5/25.
  */
 public interface RoomTimeTableService extends BaseDao<RoomTimeTable> {
-    List<RoomTimeTable> getAllByStatus(String unhandle);
+    List<RoomTimeTable> getRoomTimeTableList(String unhandle);
 
-    void confirmUnhanleRoom(long roomTimeTableID, String handle);
+    void confirmUnhandleRoom(long roomTimeTableID, String handle);
 
     void RoomTimeTableDeleteById(long RoomTimeTableId);
 }

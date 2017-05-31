@@ -4,7 +4,6 @@ package com.czw.entity;
  * Created by chenzhaowen on 2017/5/26.
  */
 public class ReserveInfoSearch {
-    private String revUserName;// 班级名称
     private String revRoomName;// 教室名称
     private String revCourseTime;// 课程节数
     private String revTime;// 教室预约时间
@@ -13,21 +12,14 @@ public class ReserveInfoSearch {
     public ReserveInfoSearch() {
     }
 
-    public ReserveInfoSearch(String revUserName, String revRoomName, String revCourseTime, String revTime, String revWeek) {
-        this.revUserName = revUserName;
+
+    public ReserveInfoSearch(String revRoomName, String revCourseTime, String revTime, String revWeek) {
         this.revRoomName = revRoomName;
         this.revCourseTime = revCourseTime;
         this.revTime = revTime;
         this.revWeek = revWeek;
     }
 
-    public String getRevUserName() {
-        return revUserName;
-    }
-
-    public void setRevUserName(String revUserName) {
-        this.revUserName = revUserName;
-    }
 
     public String getRevRoomName() {
         return revRoomName;

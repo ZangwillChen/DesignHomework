@@ -19,8 +19,7 @@
         <property name="userPhone" type="java.lang.String" length="50">
             <column name="u_phone"/>
         </property>
-        <property name="userEmail" type="java.lang.String" length="50"
-                  not-null="false">
+        <property name="userEmail" type="java.lang.String" length="50">
             <column name="u_email"/>
         </property>
 

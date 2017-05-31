@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%
-    String path = request.getContextPath();
-%>
+         pageEncoding="utf-8"%> <%@ taglib prefix="s" uri="/struts-tags"%>
+<%String path = request.getContextPath();%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,7 +18,7 @@
             <table width="100%" height="31" border="0" cellpadding="0"
                    cellspacing="0" background="./../Images//content_bg.gif">
                 <tr>
-                    <td height="31"><div class="title1">已完成列表</div></td>
+                    <td height="31"><div class="title1">用户列表</div></td>
                 </tr>
             </table>
         </td>
@@ -48,7 +45,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看已完成列表！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看待处理预约列表！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -72,6 +69,7 @@
                             <tr>
                                 <td colspan="2">
                                     <table class="defaultlist">
+                                        <col width="10%">
                                         <col width="15%">
                                         <col width="15%">
                                         <col width="15%">
@@ -87,21 +85,20 @@
                                             <td>相关操作</td>
                                         </tr>
                                         <!-- 遍历开始 -->
-                                        <s:iterator value="#session.roomtbList" var="roomtb">
+                                        <s:iterator value="#request.roomtbList" var="roomtb">
                                             <tr>
                                                 <td><s:property value="#roomtb.roomTimeTableID" /></td>
                                                 <td><s:property value="#roomtb.user.userName" /></td>
                                                 <td><s:property value="#roomtb.room.roomName" /></td>
                                                 <td><s:property value="#roomtb.roomTimeTableWeek" /></td>
                                                 <td><s:property value="#roomtb.roomTime" /></td>
-                                                <td><a
-                                                        href="<%=path%>/admin/roomttable_roomFinishedDelete.action?roomTimeTableID=<s:property value=" #roomtb.roomTimeTableID"/>"
-                                                        onclick="javascript: return confirm('需要删除已完成预约吗？');">删除</a></td>
+                                                <td>
+                                                    <a href="<%=path%>/admin/roomttable_roomFinishedDelete.action?roomTimeTableID=<s:property value=" #roomtb.roomTimeTableID"/>"
+                                                       onclick="javascript: return confirm('需要删除预约吗？');">删除</a></td>
                                             </tr>
                                         </s:iterator>
                                         <!-- 遍历结束 -->
                                     </table> <!-- 其他功能超链接 -->
-
                                 </td>
                             </tr>
                         </table>
@@ -123,9 +120,9 @@
                     <td width="2%">&nbsp;</td>
                     <td width="51%" class="left_txt"><img
                             src="../Images//icon_mail.gif" width="16" height="11">
-                        服务邮箱：zhuguangjin@126.com<br /> <img
+                        服务邮箱：<br /> <img
                                 src="../Images//icon_phone.gif" width="17" height="14">
-                        服务电话：<a href="http://www.mycodes.net/" target="_blank">13512929571</a></td>
+                        服务电话：<a href="http://www.mycodes.net/" target="_blank"></a></td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>

@@ -8,7 +8,6 @@
     <constant name="struts.devMode" value="true"></constant>
     <constant name="struts.action.extension" value="action"></constant>
 
-    <include file="struts-user-front.xml" />
 
     <package name="default" namespace="/" extends="struts-default"/>
 
@@ -47,6 +46,7 @@
         </action>
     </package>
 
+
     <package name="roomAction" namespace="/admin" extends="default">
         <action name="room_*" class="RoomAction" method="{1}">
             <result name="roomListUI">/admin/room_list.jsp</result>
@@ -65,6 +65,29 @@
 
             <result name="roomFinishedListUI">/admin/roomtimetablefinished_list.jsp</result>
             <result name="toRoomFinishedListUI" type="redirect">admin/roomtimetablefinished_list.jsp</result>
+        </action>
+    </package>
+
+    <package name="annoAction" namespace="/admin" extends="default">
+        <action name="anno_*" class="AnncouncementAction" method="{1}">
+            <result name="annoListUI">/admin/anno_list.jsp</result>
+            <result name="annoSeeUI">/admin/anno_see.jsp</result>
+            <result name="annoAddUI">/admin/anno_add.jsp</result>
+            <result name="toAnnoListUI" type="redirect">/admin/anno_list.jsp</result>
+        </action>
+    </package>
+
+    <package name="userfrontAction" namespace="/users" extends="default">
+        <action name="user_*" class="UserAction" method="{1}">
+            <result name="userLogin">/users/index.jsp</result>
+            <result name="toUserLogin">/users/Users_login.jsp</result>
+            <result name="userInfoUI">/users/user_info.jsp</result>
+            <result name="userEditUI">/users/user_edit.jsp</result>
+            <result name="toUserInfoUI" type="redirect">/users/user_info.jsp</result>
+
+            <result name="userReserveRoomUI">/users/userroomreserve_list.jsp</result>
+            <result name="userReserveRoomList" type="redirect">/users/userroomreserve_list.jsp</result>
+
         </action>
     </package>
 </struts>

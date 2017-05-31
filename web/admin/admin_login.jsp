@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="../Css/xgxt_login.css" />
-    <title>用户登录</title>
+    <title>管理员登录</title>
 </head>
 <body>
 
@@ -40,6 +40,6 @@
     </div>
 </div>
 
-<div style="text-align: center;">©2016. All rights reserved. </div>
+<div style="text-align: center;">©2017. All rights reserved. </div>
 </body>
 </html>

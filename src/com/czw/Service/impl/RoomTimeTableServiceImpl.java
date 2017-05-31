@@ -3,6 +3,7 @@ package com.czw.Service.impl;
 import com.czw.Dao.RoomTimeTableDao;
 import com.czw.Dao.impl.BaseDaoImpl;
 import com.czw.Service.RoomTimeTableService;
+import com.czw.entity.Room;
 import com.czw.entity.RoomTimeTable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,12 +22,13 @@ public class RoomTimeTableServiceImpl extends BaseDaoImpl<RoomTimeTable> impleme
     @Resource
     RoomTimeTableDao roomTimeTableDao;
 
-    public List<RoomTimeTable> getAllByStatus(String unhandle){
-        List<RoomTimeTable> roomTimeTableList = roomTimeTableDao.getAllByStatus(unhandle);
-        return roomTimeTableList;
+    @Override
+    public List<RoomTimeTable> getRoomTimeTableList(String unhandle){
+        List<RoomTimeTable> roomTimeTables = roomTimeTableDao.getAllByStatus(unhandle);
+        return roomTimeTables;
     }
 
-    public void confirmUnhanleRoom(long roomTimeTableID, String handle){       //管理员更改未审核的房间状态
+    public void confirmUnhandleRoom(long roomTimeTableID, String handle){       //管理员更改未审核的房间状态
         RoomTimeTable roomTimeTable = getById(roomTimeTableID);
         roomTimeTable.setRoomStatus(handle);
         update(roomTimeTable);
