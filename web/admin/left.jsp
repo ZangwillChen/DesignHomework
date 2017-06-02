@@ -48,6 +48,7 @@
                         <li><a href="./admin_info.jsp" target="main">个人信息</a></li>
                         <li><a href="./user_userListUI.action" target="main">普通用户</a></li>
                         <li><a href="./admin_adminListUI.action" target="main">管理员用户</a></li>
+                        <li><a href="./role_roleListUI.action" target="main">普通用户类型</a> </li>
                     </ul>
                 </div>
 
@@ -63,8 +64,8 @@
                     </table>
                     <ul class="RM">
                         <li><a href="./roomttable_roomNotHandleListUI.action" target="main">待处理预约</a></li>
-                        <li><a href="./roomttable_roomHandleListUI.action" target="main">已处理预约</a></li>
-                        <li><a href="./roomttable_roomFinishedListUI.action" target="main">已完成</a></li>
+                        <li><a href="./roomttable_roomHandleListUI.action" target="main">已接受预约</a></li>
+                        <li><a href="./roomttable_roomFinishedListUI.action" target="main">已拒绝</a></li>
                     </ul>
                 </div>
                 <!-- *********** -->

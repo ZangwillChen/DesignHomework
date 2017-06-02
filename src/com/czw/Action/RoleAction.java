@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -23,7 +24,6 @@ import java.util.List;
 public class RoleAction extends BaseAction implements ModelDriven<Role> {
 
     private static final long serialVerisonUID = 1L;
-    @Autowired
     @Resource
     private RoleService roleService;
     private RoomService roomService;
@@ -37,11 +37,26 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
     * @brief 查询所有用户类型
     * @return
     * */
-    public String roleListUI() {
+    public String roleListUI() throws Exception {
         List<Role> roleList = roleService.getAllRoles();
-        session.setAttribute("roleList",roleList);
+        Iterator<Role> itr = roleList.iterator();
+        while (itr.hasNext()){
+            Role str = itr.next();
+            System.out.println(str.getRoleID());
+            System.out.println(str.getRoleName());
+            System.out.println(str.getPermission());
+        }
+
+        if (roleList != null && roleList.size() >0){
+            session.setAttribute("roleList",roleList);
+        }
 
         return "roleListUI";
+    }
+
+
+    public String roleEditUI() {
+        return "roleEditUI";
     }
 
 

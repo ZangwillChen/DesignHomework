@@ -12,18 +12,18 @@ public class Room {
     private String roomName;
     private String roomStatus;//是否为停用
     private int roomtype;
-    private ReserveInfo reserveInfos ;
+
 
     public Room(){
 
     }
 
-    public Room(long roomID, String roomName, String roomStatus, int roomtype, ReserveInfo reserveInfos) {
+    public Room(long roomID, String roomName, String roomStatus, int roomtype) {
         this.roomID = roomID;
         this.roomName = roomName;
         this.roomStatus = roomStatus;
         this.roomtype = roomtype;
-        this.reserveInfos = reserveInfos;
+
     }
 
     public long getRoomID() {
@@ -58,11 +58,4 @@ public class Room {
         this.roomtype = roomtype;
     }
 
-    public ReserveInfo getReserveInfos() {
-        return reserveInfos;
-    }
-
-    public void setReserveInfos(ReserveInfo reserveInfos) {
-        this.reserveInfos = reserveInfos;
-    }
 }

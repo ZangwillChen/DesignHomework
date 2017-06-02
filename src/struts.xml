@@ -33,6 +33,14 @@
         </action>
     </package>
 
+    <package name="roleAction" namespace="/admin" extends="default">
+        <action name="role_*" class="RoleAction" method="{1}">
+
+            <result name="roleListUI">/admin/role_list.jsp</result>
+            <result name="roleEditUI">/admin/role_edit.jsp</result>
+
+        </action>
+    </package>
 
     <!--系统管理员 用户 -->
     <package name="userAction" namespace="/admin" extends="default">
@@ -43,6 +51,7 @@
             <result name="toUserList" type="redirect">/admin/user_list.jsp
             </result>
             <result name="userAddUI">/admin/user_add.jsp</result>
+            <result name="roleSetUI">/admin/role_set.jsp</result>
         </action>
     </package>
 
@@ -52,6 +61,8 @@
             <result name="roomListUI">/admin/room_list.jsp</result>
             <result name="roomAddUI">/admin/room_add.jsp</result>
             <result name="toRoomListUI" type="redirect">/admin/room_list.jsp</result>
+            <result name="roomEditUI" >/admin/room_edit.jsp</result>
+            <result name="toRoomEditUI" type="redirect">/admin/room_edit.jsp</result>
         </action>
     </package>
 
@@ -88,6 +99,25 @@
             <result name="userReserveRoomUI">/users/userroomreserve_list.jsp</result>
             <result name="userReserveRoomList" type="redirect">/users/userroomreserve_list.jsp</result>
 
+            <result name="userReserveUI">/users/user_reserve.jsp</result>
+            <result name="toUserReserveUI" type="redirect">/users/user_reserve.jsp</result>
+
         </action>
     </package>
+
+    <package name="userRoomAcion" namespace="/users" extends="default">
+        <action name="room_*" class="RoomAction" method="{1}">
+            <result name="roomListByUserUI">/users/room_list.jsp</result>
+            <result name="roomReserveUI">/users/user_reserve.jsp</result>
+
+        </action>
+    </package>
+    <package name="userReserve" namespace="/users" extends="default">
+        <action name="roomttb_*" class="RoomTimeTableAction" method="{1}">
+            <result name="roomReserveUI">/users/user_reserve.jsp</result>
+            <result name="roomListByUserUI">/users/room_list.jsp</result>
+            <result name="userReserveInfoUI">/users/user_reserveInfo.jsp</result>
+        </action>
+    </package>
+
 </struts>

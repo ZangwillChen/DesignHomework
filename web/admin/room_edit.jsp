@@ -48,7 +48,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以编辑个人信息！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以编辑房间信息！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -71,7 +71,7 @@
                         <table width="100%">
                             <tr>
                                 <td colspan="2">
-                                    <form action="room_roomEdit" method="post">
+                                    <s:form action="room_roomEdit" method="post">
 
                                         <table width="100%" class="cont">
                                             <s:iterator value="#session.editRoom">
@@ -118,7 +118,7 @@
 
                                         </table>
 
-                                    </form>
+                                    </s:form>
                                 </td>
                             </tr>
                         </table>

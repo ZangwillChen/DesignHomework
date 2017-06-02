@@ -3,12 +3,15 @@ package com.czw.Dao.impl;
 import com.czw.Dao.BaseDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+
+import static org.infinispan.interceptors.locking.ClusteringDependentLogic.log;
 
 /**
  * Created by chenzhaowen on 2017/5/22.
@@ -18,7 +21,7 @@ import java.util.List;
 @Transactional
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
     @Resource
-    private SessionFactory sessionFactory;
+    public SessionFactory sessionFactory;
     private Class<T> clazz = null;
 
     @SuppressWarnings("unchecked")
@@ -38,7 +41,19 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
     @Override
     public void save(T entity){
-        getSession().save(entity);
+        //log.debug("saving EtpDynamicValue instance");
+       // Transaction tran = getSession().beginTransaction();
+        //try {
+            getSession().save(entity);
+
+            //log.debug("save successful");
+      //  } catch (RuntimeException re) {
+       //     log.error("save failed", re);
+      //      throw re;
+      //  }
+      //  tran.commit();
+      //  getSession().flush();
+      //  getSession().close();
     }
 
     @Override

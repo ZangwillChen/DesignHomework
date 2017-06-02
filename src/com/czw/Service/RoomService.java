@@ -25,7 +25,7 @@ public interface RoomService extends BaseDao<Room> {
     * */
     List<Room> getRoomListByStatus(String roomStatus);
 
-    List<Room> getRoomListByRole(int userType,String roomStatus);
+    List<Room> getRoomListByRoleAndStatus(int userType,String roomStatus);
 
     Room getRoomByName(String roomName);
     /*

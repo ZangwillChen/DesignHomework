@@ -3,6 +3,8 @@ package com.czw.Service.impl;
 import com.czw.Dao.impl.BaseDaoImpl;
 import com.czw.Service.RoleService;
 import com.czw.entity.Role;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +26,15 @@ public class RoleServiceImpl extends BaseDaoImpl<Role> implements RoleService {
     public List<Role> getAllRoles(){
         List<Role> ListRole = findall();
         return ListRole;
+    }
+
+    public Role getRoleByName(String roleName) {
+        Role role=null;
+        Session session = getSession();
+        Query query = session.createQuery("FROM Role role WHERE role.roleName=?");
+        query.setParameter(0,roleName);
+        role = (Role) query.uniqueResult();
+        return role;
     }
 
     /*

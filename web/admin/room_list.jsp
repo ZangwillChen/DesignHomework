@@ -87,9 +87,9 @@
                                                 <td><s:property value="#room.roomID" /></td>
                                                 <td><s:property value="#room.roomName" /></td>
                                                 <td><s:property value="#room.roomStatus" /></td>
-                                                <td><s:property value="#rooom.roomtype"/> </td>
+                                                <td><s:property value="#room.roomtype"/> </td>
                                                 <td><a
-                                                       href="<%=path%>/admin/room_roomEdit.action?roomID=<s:property value="#room.roomID"/>"
+                                                       href="<%=path%>/admin/room_roomEditUI.action?roomID=<s:property value="#room.roomID"/>"
                                                         onclick="javascript: return confirm('确认要修改吗？');">修改 </a></td>
                                                 <td><a
                                                         href="<%=path%>/admin/room_roomDelete.action?roomID=<s:property value="#room.roomID"/>"

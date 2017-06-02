@@ -2,6 +2,7 @@ package com.czw.Service;
 
 import com.czw.Dao.BaseDao;
 import com.czw.entity.RoomTimeTable;
+import com.czw.entity.User;
 
 import java.util.List;
 
@@ -14,4 +15,8 @@ public interface RoomTimeTableService extends BaseDao<RoomTimeTable> {
     void confirmUnhandleRoom(long roomTimeTableID, String handle);
 
     void RoomTimeTableDeleteById(long RoomTimeTableId);
+
+    void RoomTimeTableSave(RoomTimeTable roomTimeTable);
+
+    List<RoomTimeTable> getRoomTimeTableListByUser(User user);
 }

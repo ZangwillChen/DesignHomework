@@ -108,14 +108,6 @@
                                                 <td width="2%">&nbsp;</td>
                                             </tr>
 
-                                            <tr>
-                                                <td width="2%">&nbsp;</td>
-                                                <td width="15%">用户类型：</td>
-                                                <td width="25%"><input class="text" type="text"
-                                                                       name="userType"/></td>
-                                                <td>设置用户类型</td>
-                                                <td width="2%">&nbsp;</td>
-                                            </tr>
 
                                             <tr>
                                                 <td>&nbsp;</td>

@@ -82,24 +82,15 @@
                                             <td>教室</td>
                                             <td>周次</td>
                                             <td>时间</td>
-                                            <td>相关操作</td>
                                         </tr>
                                         <!-- 遍历开始 -->
                                         <s:iterator value="#request.roomtbList" var="roomtb">
                                             <tr>
                                                 <td><s:property value="#roomtb.roomTimeTableID" /></td>
-                                                <td><s:property value="#roomtb.user.userName" /></td>
+                                                <td><s:property value="#roomtb.userName" /></td>
                                                 <td><s:property value="#roomtb.roomName" /></td>
                                                 <td><s:property value="#roomtb.roomTimeTableWeek" /></td>
                                                 <td><s:property value="#roomtb.roomTime" /></td>
-                                                <td><a
-                                                        href="<%=path%>/admin/roomttable_roomReserveConfirm.action?roomTimeTableID=<s:property value=" #roomtb.roomTimeTableID"/>"
-                                                        onclick="javascript: return confirm('需要确认预约吗？');">确认</a>&nbsp;&nbsp;&nbsp;
-                                                    <a
-                                                            href="<%=path%>/admin/roomttable_roomReserveDecline.action?roomTimeTableID=<s:property value=" #roomtb.roomTimeTableID"/>"
-                                                            onclick="javascript: return confirm('需要拒绝预约吗？');">拒绝</a>&nbsp;&nbsp;&nbsp;
-                                                    <a href="<%=path%>/admin/roomttable_roomNotHandleDelete.action?roomTimeTableID=<s:property value=" #roomtb.roomTimeTableID"/>"
-                                                       onclick="javascript: return confirm('需要删除预约吗？');">删除</a></td>
                                             </tr>
                                         </s:iterator>
                                         <!-- 遍历结束 -->

@@ -89,7 +89,7 @@
                                             <tr>
                                                 <td><s:property value="#roomtb.roomTimeTableID" /></td>
                                                 <td><s:property value="#roomtb.user.userName" /></td>
-                                                <td><s:property value="#roomtb.room.roomName" /></td>
+                                                <td><s:property value="#roomtb.roomName" /></td>
                                                 <td><s:property value="#roomtb.roomTimeTableWeek" /></td>
                                                 <td><s:property value="#roomtb.roomTime" /></td>
                                                 <td>

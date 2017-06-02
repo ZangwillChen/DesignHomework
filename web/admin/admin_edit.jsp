@@ -71,7 +71,7 @@
                         <table width="100%">
                             <tr>
                                 <td colspan="2">
-                                    <form action="admin_adminEdit" method="post">
+                                    <s:form action="admin_adminEdit" method="post">
 
                                         <table width="100%" class="cont">
                                             <s:iterator value="#session.loginAdmin">
@@ -125,7 +125,7 @@
 
                                         </table>
 
-                                    </form>
+                                    </s:form>
                                 </td>
                             </tr>
                         </table>

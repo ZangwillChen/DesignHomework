@@ -138,7 +138,7 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
         Admin loginAdmin;
         if (editAdmin != null){
             System.out.println("编辑之前：");
-            editAdmin.setAdminName(admin.getAdminPhone());
+            editAdmin.setAdminName(admin.getAdminName());
             editAdmin.setAdminPassword(admin.getAdminPassword());
             editAdmin.setAdminPhone(admin.getAdminPhone());
             editAdmin.setAdminEmail(admin.getAdminEmail());
@@ -162,7 +162,7 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
      * @throws Exception
      */
     public String adminEditUI() throws Exception {
-        return "adminEditUI";
+       return "adminEditUI";
     }
 
     @Override

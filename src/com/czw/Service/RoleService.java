@@ -44,4 +44,6 @@ public interface RoleService extends BaseDao<Role> {
     * @return
     * */
     void roleDelete(long roleID);
+
+    Role getRoleByName(String roleName);
 }

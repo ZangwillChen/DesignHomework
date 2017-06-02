@@ -45,7 +45,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看待处理预约列表！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看您的预约记录！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -78,28 +78,19 @@
                                         <col width="15%">
                                         <tr class="title">
                                             <td>时间表ID</td>
-                                            <td>借教室人</td>
                                             <td>教室</td>
                                             <td>周次</td>
                                             <td>时间</td>
-                                            <td>相关操作</td>
+                                            <td>状态</td>
                                         </tr>
                                         <!-- 遍历开始 -->
                                         <s:iterator value="#request.roomtbList" var="roomtb">
                                             <tr>
                                                 <td><s:property value="#roomtb.roomTimeTableID" /></td>
-                                                <td><s:property value="#roomtb.user.userName" /></td>
                                                 <td><s:property value="#roomtb.roomName" /></td>
                                                 <td><s:property value="#roomtb.roomTimeTableWeek" /></td>
                                                 <td><s:property value="#roomtb.roomTime" /></td>
-                                                <td><a
-                                                        href="<%=path%>/admin/roomttable_roomReserveConfirm.action?roomTimeTableID=<s:property value=" #roomtb.roomTimeTableID"/>"
-                                                        onclick="javascript: return confirm('需要确认预约吗？');">确认</a>&nbsp;&nbsp;&nbsp;
-                                                    <a
-                                                            href="<%=path%>/admin/roomttable_roomReserveDecline.action?roomTimeTableID=<s:property value=" #roomtb.roomTimeTableID"/>"
-                                                            onclick="javascript: return confirm('需要拒绝预约吗？');">拒绝</a>&nbsp;&nbsp;&nbsp;
-                                                    <a href="<%=path%>/admin/roomttable_roomNotHandleDelete.action?roomTimeTableID=<s:property value=" #roomtb.roomTimeTableID"/>"
-                                                       onclick="javascript: return confirm('需要删除预约吗？');">删除</a></td>
+                                                <td><s:property value="#roomtb.roomStatus"/> </td>
                                             </tr>
                                         </s:iterator>
                                         <!-- 遍历结束 -->

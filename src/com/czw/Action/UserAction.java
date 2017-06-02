@@ -3,6 +3,7 @@ package com.czw.Action;
 import com.czw.Service.UserService;
 import com.czw.entity.ReserveInfo;
 import com.czw.entity.ReserveInfoSearch;
+import com.czw.entity.Role;
 import com.czw.entity.User;
 import com.opensymphony.xwork2.ModelDriven;
 import org.springframework.context.annotation.Scope;
@@ -24,6 +25,8 @@ import java.util.List;
 public class UserAction extends BaseAction implements ModelDriven<User> {
 
     private static final long serialVersionUID = 1L;
+
+
     @Resource
     private UserService userService;
 
@@ -67,20 +70,25 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
      * @return
      */
     public String userEdit() {
-        User userUpdateInfo;
-        System.out.println("(用户信息修改)用户ID"+user.getUserID());
+        System.out.println("(用户修改信息)用户ID"+user.getUserID());
         User editUser = userService.user_edit_getById(user.getUserID());
-
+        User ulogin;
         if (editUser != null){
+            System.out.println("编辑之前：");
             editUser.setUserName(user.getUserName());
             editUser.setUserPassword(user.getUserPassword());
             editUser.setUserPhone(user.getUserPhone());
             editUser.setUserEmail(user.getUserEmail());
 
             userService.user_edit_update(editUser);
-            userUpdateInfo = editUser;
-            session.setAttribute("ulogin",userUpdateInfo);
+
+            ulogin = editUser;
+            session.putValue("userName",ulogin.getUserName());
+            session.setAttribute("ulogin",ulogin);
+
+            System.out.println("编译之后:"+editUser.getUserName());
             return "toUserInfoUI";
+
         }
         return "ERROR";
     }
@@ -145,6 +153,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 
         return "userListUI";
     }
+
     /**
      * @brief 用户添加页面
      * @return
@@ -159,8 +168,23 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
      */
     public String userAdd() {
         userService.userAdd(user);
-        return "toUserList";
+        return "roleSetUI";
     }
+
+    public String roleSetUI() {
+        return "roleSetUI";
+    }
+
+    public String roleSet()  {
+        String userType = request.getParameter("userType");
+        User userRole = userService.getById(user.getUserID());
+        System.out.println("用户名"+user.getUserName());
+        System.out.println(userType);
+        //user.setUserType(role);
+        userService.update(userRole);
+        return "userListUI";
+    }
+
 
     /**
      * @brief 用户删除

@@ -49,10 +49,10 @@ public class RoomServiceImpl extends BaseDaoImpl<Room> implements RoomService {
         return roomList;
     }
 
-    public List<Room> getRoomListByRole(int userType,String roomStatus){
+    public List<Room> getRoomListByRoleAndStatus(int userType,String roomStatus){
         List<Room> roomList = null;
         Session session = getSession();
-        Query query =session.createQuery("FROM Room room WHERE room.roomStatus=? AND room.roomtype<=?");    //角色的权限大于房间的roomtype时即可访问
+        Query query =session.createQuery("FROM Room room WHERE room.roomStatus=? AND room.roomtype<=? ");    //角色的权限大于房间的roomtype时即可访问
         query.setParameter(0,roomStatus);
         query.setParameter(1,userType);
         roomList = (List<Room>) query.list();

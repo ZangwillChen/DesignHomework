@@ -18,12 +18,11 @@
     <script type="text/javascript">
         function getvalue() {
             var form = document.getElementById("myform");
-            var inputbn = document.getElementById("roomName");
-            var inputct = document.getElementById("courseTime");
+            var inputbn = document.getElementById("roomTimeTableWeek");
             var inputrt = document.getElementById("roomTime");
 
             form.method = "post";
-            form.action = "/users/user_userReserveSearch";
+            form.action = "/users/roomttb_roomReserve";
             form.submit();
         }
     </script>
@@ -75,7 +74,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="${pageContext.request.contextPath}/Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看可以预约的教室！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以预约教室！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -97,50 +96,24 @@
                     <td width="96%">
                         <table width="100%">
                             <tr>
-                                <td>
-                                    <table>
+                                <td colspan="2">
+                                    <s:form action="roomttb_roomReserve" method="POST">
+                                        房间名称：<input id="roomName" class="text" type="text" name="roomName"/>
+                                        课程节数：<input id="courseTime" class="text" type="text" name="roomTimeTableWeek" />
+                                        预约时间: <input type="text" class="text" id="roomTime" name="roomTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
                                         <tr>
-                                            <td style="font-weight: bold">查询教室:</td>
-
+                                            <td>&nbsp;</td>
+                                            <td colspan="3"><input class="btn" type="submit"
+                                                                   value="提交申请" /></td>
+                                            <td>&nbsp;</td>
                                         </tr>
-                                        <tr>
-                                            <td height="30px">
-                                                <form id="myform">
-                                                    教室名称：<input id="roomName" type="text" name="roomName" />
-                                                    课程节数：<input id="courseTime" type="text" name="courseTime" />
-                                                    预约时间 ：<input type="text" id="roomTime" name="roomTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
-                                                    <input type="button" onclick="getvalue()" value="查询" />
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    </s:form>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td colspan="2"><br />
-                                    <table class="defaultlist">
-                                        <col width="10%">
-                                        <col width="10%">
-                                        <col width="10%">
-                                        <col width="10%">
-
-                                        <tr class="title">
-                                            <td>教室名称</td>
-                                            <td>日期</td>
-                                            <td>相关操作</td>
-                                        </tr>
-
-                                        <!-- 遍历开始 -->
-                                        <s:iterator value="#session.reserveInfo">
-                                            <tr>
-                                                <td>${reserveInfo.cRevLabName}</td>
-                                                <td>${reserveInfo.cRevData}</td>
-                                                <td><a
-                                                        href="<%=path%>/admin/user_userDelete.action?userID=<s:property value=" #ulogin.userID"/>"
-                                                        onclick="javascript: return confirm('真的要删除吗？');">预约教室</a></td>
-                                            </tr>
-                                        </s:iterator>
+                        </table>
+                    </td>
+                    <td width="2%">&nbsp;</td>
+                </tr>
                                         <!-- 遍历结束 -->
                                     </table> <!-- 其他功能超链接 -->
                             </tr>

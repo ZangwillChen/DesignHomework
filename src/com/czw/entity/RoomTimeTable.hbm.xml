@@ -13,11 +13,12 @@
             <column name="rt_roomtweek"/>
         </property>
         <!-- 单向一对一 -->
-        <many-to-one name="room" class="com.czw.entity.Room">
+        <many-to-one name="room" class="com.czw.entity.Room" lazy="false" unique="true">
             <column name="roomtabroomID"/>
         </many-to-one>
 
-        <many-to-one name="user" class="com.czw.entity.User">
+
+        <many-to-one name="user" class="com.czw.entity.User" lazy="false" unique="true">
             <column name="roomuserId"/>
         </many-to-one>
 
@@ -28,5 +29,13 @@
         <property name="roomStatus" type="java.lang.String">
             <column name="rt_status"/>
         </property>
-     </class>
+
+        <property name="roomName" type="java.lang.String">
+            <column name="rt_rname"/>
+        </property>
+
+        <!--<property name="userName" type="java.lang.String">
+            <column name="rt_uname"/>
+        </property>-->
+      </class>
 </hibernate-mapping>

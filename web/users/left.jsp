@@ -61,9 +61,22 @@
                     </table>
                     <ul class="RM">
                         <li><a href="./user_userReserveRoomUI.action" target="main">预约教室</a></li>
-                        <li><a href="./roomttable_roomHandleListUI.action" target="main">已完成预约</a></li>
-                        <li><a href="./roomttable_roomFinishedListUI.action" target="main">已完成</a></li>
-                    </ul>
+                        <li><a href="../admin/roomttable_roomHandleListUI.action" target="main">预约信息查看</a></li>
+                        <li><a href="./roomttb_userReserveInfoUI.action" target="main">我的预约</a></li>
+                </div>
+
+                <h1 class="type">
+                    <a href="javascript:void(0)">进行预约</a>
+                </h1>
+                <div class="content">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td><img src="../Images//menu_top_line.gif" width="182"
+                                     height="5" /></td>
+                        </tr>
+                    </table>
+                    <ul class="RM">
+                        <li><a href="./room_roomListByUserUI.action" target="main">教室列表</a></li>
                 </div>
                 <!-- *********** -->
                 <h1 class="type">
@@ -77,7 +90,7 @@
                         </tr>
                     </table>
                     <ul class="RM">
-                        <li><a href="./anno_annoListUI.action" target="main">查看公告</a></li>
+                        <li><a href="/admin/anno_annoListUI.action" target="main">查看公告</a></li>
                     </ul>
                 </div>
                 <!-- *********** -->
