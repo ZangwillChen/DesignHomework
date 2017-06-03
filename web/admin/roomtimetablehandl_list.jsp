@@ -87,12 +87,12 @@
                                         <!-- 遍历开始 -->
                                         <s:iterator value="#request.roomtbList" var="roomtb">
                                             <tr>
-                                                <td><s:property value="#roomtb.roomTimeTableID" /></td>
-                                                <td><s:property value="#roomtb.user.userName" /></td>
-                                                <td><s:property value="#roomtb.roomName" /></td>
-                                                <td><s:property value="#roomtb.roomTimeTableWeek" /></td>
-                                                <td><s:property value="#roomtb.roomTime" /></td>
-                                                <td>
+                                                <td align="center"><s:property value="#roomtb.roomTimeTableID" /></td>
+                                                <td align="center"><s:property value="#roomtb.user.userName" /></td>
+                                                <td align="center"><s:property value="#roomtb.roomName" /></td>
+                                                <td align="center"><s:property value="#roomtb.roomTimeTableWeek" /></td>
+                                                <td align="center"><s:property value="#roomtb.roomTime" /></td>
+                                                <td align="center">
                                                     <a href="<%=path%>/admin/roomttable_roomHandleDelete.action?roomTimeTableID=<s:property value=" #roomtb.roomTimeTableID"/>"
                                                        onclick="javascript: return confirm('需要删除已处理预约吗？');">删除</a></td>
                                             </tr>

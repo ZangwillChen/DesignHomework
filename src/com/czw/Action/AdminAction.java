@@ -132,12 +132,13 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
      */
 
     @SuppressWarnings("deprecation")
-    public String adminEdit() throws Exception {
+  /* public String adminEdit() throws Exception {
+       // Admin loginAdmin = (Admin) session.getAttribute("loginAdmin") ;
         System.out.println("(管理员修改信息)管理员ID"+admin.getAdminID());
         Admin editAdmin = adminService.admin_edit_getById(admin.getAdminID());
         Admin loginAdmin;
         if (editAdmin != null){
-            System.out.println("编辑之前：");
+            //System.out.println("编辑之前：");
             editAdmin.setAdminName(admin.getAdminName());
             editAdmin.setAdminPassword(admin.getAdminPassword());
             editAdmin.setAdminPhone(admin.getAdminPhone());
@@ -149,11 +150,20 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
             session.putValue("adminName",loginAdmin.getAdminName());
             session.setAttribute("loginAdmin",loginAdmin);
 
-            System.out.println("编译之后:"+editAdmin.getAdminPhone());
+            System.out.println("编译之后:"+editAdmin.getAdminPassword());
             return "toAdminInfoUI";
 
         }
-        return "ERROR";
+        return "toAdminInfoUI";
+    }*/
+
+  public String adminEdit() {
+      if (adminService.getById(admin.getAdminID()) != null){
+          setAdmin(admin);
+          adminService.update(admin);
+          return "toAdminInfoUI";
+      }
+        return "toAdminInfoUI";
     }
 
     /**
@@ -179,5 +189,11 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
         this.admin = admin;
     }
 
+    public AdminService getAdminService() {
+        return adminService;
+    }
 
+    public void setAdminService(AdminService adminService) {
+        this.adminService = adminService;
+    }
 }

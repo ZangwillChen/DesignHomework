@@ -84,11 +84,11 @@
                                         <!-- 遍历开始 -->
                                         <s:iterator value="#session.adminList" var="admin">
                                             <tr>
-                                                <td><s:property value="#admin.adminID" /></td>
-                                                <td><s:property value="#admin.adminName" /></td>
-                                                <td><s:property value="#admin.adminPhone" /></td>
-                                                <td><s:property value="#admin.adminEmail" /></td>
-                                                <td><a
+                                                <td align="center"><s:property value="#admin.adminID" /></td>
+                                                <td align="center"><s:property value="#admin.adminName" /></td>
+                                                <td align="center"><s:property value="#admin.adminPhone" /></td>
+                                                <td align="center"><s:property value="#admin.adminEmail" /></td>
+                                                <td align="center"><a
                                                         href="<%=path%>/admin/admin_adminDelete.action?adminID=<s:property value=" #admin.adminID"/>"
                                                         onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
                                             </tr>

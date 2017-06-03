@@ -73,7 +73,7 @@
                                         <col width="20">
                                         <col width="20%">
                                         <col width="20%">
-                                        <col width="20">
+                                        <col width="20%">
                                         <tr class="title">
                                             <td>教室ID</td>
                                             <td>教室位置名称</td>
@@ -84,14 +84,17 @@
                                         <!-- 遍历开始 -->
                                         <s:iterator value="#session.roomList" var="room">
                                             <tr>
-                                                <td><s:property value="#room.roomID" /></td>
-                                                <td><s:property value="#room.roomName" /></td>
-                                                <td><s:property value="#room.roomStatus" /></td>
-                                                <td><s:property value="#room.roomtype"/> </td>
-                                                <td><a
-                                                       href="<%=path%>/admin/room_roomEditUI.action?roomID=<s:property value="#room.roomID"/>"
-                                                        onclick="javascript: return confirm('确认要修改吗？');">修改 </a></td>
-                                                <td><a
+                                                <td align="center"><s:property value="#room.roomID" /></td>
+                                                <td align="center"><s:property value="#room.roomName" /></td>
+                                                <td align="center"><s:property value="#room.roomStatus" /></td>
+                                                <td align="center"><s:property value="#room.roomtype"/> </td>
+                                                <td align="center"><a
+                                                       href="<%=path%>/admin/room_roomBlock.action?roomID=<s:property value="#room.roomID"/>"
+                                                        onclick="javascript: return confirm('确认要停用吗？');">停用 </a>
+                                                    <a
+                                                        href="<%=path%>/admin/room_roomBlockCancel.action?roomID=<s:property value="#room.roomID"/>"
+                                                        onclick="javascript: return confirm('确认要恢复使用吗？');">恢复使用 </a>
+                                                    <a
                                                         href="<%=path%>/admin/room_roomDelete.action?roomID=<s:property value="#room.roomID"/>"
                                                         onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
                                             </tr>

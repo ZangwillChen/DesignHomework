@@ -77,9 +77,9 @@
                                             <s:iterator value="#session.editRoom">
                                                 <tr>
                                                     <td width="2%">&nbsp;</td>
-                                                    <td width="15%">用户ID：</td>
+                                                    <td width="15%">房间ID：</td>
                                                     <td width="25%"><input class="text" type="text"
-                                                                           name="roomID" value="${editRoom.roomID}" readonly="readonly"/></td>
+                                                                           name="roomID" value="${editRoom.roomID}" readonly="readonly" /></td>
                                                     <td>房间ID不能设置</td>
                                                     <td width="2%">&nbsp;</td>
                                                 </tr>
@@ -87,7 +87,7 @@
                                                     <td width="2%">&nbsp;</td>
                                                     <td width="15%">房间名：</td>
                                                     <td width="25%"><input class="text" type="text"
-                                                                           name="roomName" value="${editRoom.roomName}"/></td>
+                                                                           name="roomName" value="${editRoom.roomName}" /></td>
                                                     <td>设置用户名</td>
                                                     <td width="2%">&nbsp;</td>
                                                 </tr>

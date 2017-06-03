@@ -123,6 +123,14 @@
                                                     <td>设置设置用户邮箱</td>
                                                     <td width="2%">&nbsp;</td>
                                                 </tr>
+                                                <tr>
+                                                    <td width="2%">&nbsp;</td>
+                                                    <td width="15%">用户类型：</td>
+                                                    <td width="25%"><input class="text" type="text"
+                                                                           name="userID" value="${ulogin.userType.roleName}" readonly="readonly"/></td>
+                                                    <td>用户类型不能设置</td>
+                                                    <td width="2%">&nbsp;</td>
+                                                </tr>
 
                                             </s:iterator>
                                             <tr>
@@ -156,9 +164,9 @@
                     <td width="2%">&nbsp;</td>
                     <td width="51%" class="left_txt"><img
                             src="../Images//icon_mail.gif" width="16" height="11">
-                        服务邮箱：zhuguangjin@126.com<br /> <img
+                        服务邮箱：<br /> <img
                                 src="../Images//icon_phone.gif" width="17" height="14">
-                        服务电话：<a href="http://www.mycodes.net/" target="_blank">13512929571</a></td>
+                        服务电话：<a href="http://www.mycodes.net/" target="_blank"></a></td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>

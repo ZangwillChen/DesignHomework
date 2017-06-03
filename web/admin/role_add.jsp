@@ -21,7 +21,7 @@
             <table width="100%" height="31" border="0" cellpadding="0"
                    cellspacing="0" background="./../Images//content_bg.gif">
                 <tr>
-                    <td height="31"><div class="title1">公告列表</div></td>
+                    <td height="31"><div class="title1">添加用户</div></td>
                 </tr>
             </table>
         </td>
@@ -48,7 +48,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看公告列表！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以添加用户类型！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -71,41 +71,32 @@
                         <table width="100%">
                             <tr>
                                 <td colspan="2">
-                                    <table class="defaultlist">
-                                        <col width="10%">
-                                        <col width="30%">
-                                        <col width="20%">
-                                        <col width="20%">
-                                        <col width="20%">
-                                        <tr class="title">
-                                            <td>公告ID</td>
-                                            <td>公告标题</td>
-                                            <td>公告人</td>
-                                            <td>公告时间</td>
-                                            <td>公告操作</td>
-                                        </tr>
-                                        <!-- 遍历开始 -->
-                                        <s:iterator value="#session.annoList" var="anno">
+                                    <s:form action="role_roleAdd" method="post">
+                                        <table width="100%" class="cont">
                                             <tr>
-                                                <td align="center"><s:property value="#anno.annoID" /></td>
-                                                <td align="center"><s:property value="#anno.annoTitle" /></td>
-                                                <td align="center"><s:property value="#anno.annoPerson" /></td>
-                                                <td align="center"><s:property value="#anno.annoTime" /></td>
-                                                <td align="center"><a
-                                                        href="<%=path%>/admin/anno_annoDelete.action?annoID=<s:property value=" #anno.annoID"/>"
-                                                        onclick="javascript: return confirm('需要删除吗？');">删除</a>
-                                                    <a href="<%=path%>/admin/anno_annoSeeUI.action?annoID=<s:property value=" #anno.annoID"/>"
-                                                       onclick="javascript: return confirm('需要查看吗？');">查看</a></td>
+                                                <td width="2%">&nbsp;</td>
+                                                <td width="15%">用户类型名：</td>
+                                                <td width="25%"><input class="text" type="text"
+                                                                       name="roleName"/></td>
+                                                <td>设置用户类型名</td>
+                                                <td width="2%">&nbsp;</td>
                                             </tr>
-                                        </s:iterator>
-                                        <!-- 遍历结束 -->
-                                    </table> <!-- 其他功能超链接 -->
-                                    <div id="TableTail">
-                                        <div id="TableTail_inside">
-                                            <a href="anno_add.jsp"><img
-                                                    src="..//Images/createNew.png" /></a>
-                                        </div>
-                                    </div>
+                                            <tr>
+                                                <td width="2%">&nbsp;</td>
+                                                <td width="15%">权限：</td>
+                                                <td width="25%"><input class="text" type="text"
+                                                                       name="permission"  /></td>
+                                                <td>设置登录密码</td>
+                                                <td width="2%">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td colspan="3"><input class="btn" type="submit"
+                                                                       value="提交" /></td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </s:form>
                                 </td>
                             </tr>
                         </table>

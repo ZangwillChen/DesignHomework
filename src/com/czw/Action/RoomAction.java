@@ -90,7 +90,6 @@ public class RoomAction extends BaseAction implements ModelDriven<Room> {
 
         System.out.println("(房间修改信息)房间ID"+room.getRoomID());
         Room editRoom = roomService.getById(room.getRoomID());
-
         if (editRoom != null) {
             System.out.println("编辑之前："+editRoom.getRoomID());
             editRoom.setRoomName(room.getRoomName());
@@ -118,7 +117,15 @@ public class RoomAction extends BaseAction implements ModelDriven<Room> {
         return "toRoomListUI";
     }
 
+    public String roomBlock() {
+        roomService.roomStatusChange(room.getRoomID(),"停用");
+        return "roomListUI";
+    }
 
+    public String roomBlockCancel() {
+        roomService.roomStatusChange(room.getRoomID(),"可用");
+        return "roomListUI";
+    }
 
     @Override
     public Room getModel(){

@@ -83,10 +83,10 @@
                                         <!-- 遍历开始 -->
                                         <s:iterator value="#session.roomList" var="room">
                                             <tr>
-                                                <td><s:property value="#room.roomID" /></td>
-                                                <td><s:property value="#room.roomName" /></td>
-                                                <td><s:property value="#room.roomStatus" /></td>
-                                                <td><a
+                                                <td align="center"><s:property value="#room.roomID" /></td>
+                                                <td align="center"><s:property value="#room.roomName" /></td>
+                                                <td align="center"><s:property value="#room.roomStatus" /></td>
+                                                <td align="center"><a
                                                         href="<%=path%>/users/roomttb_roomReserveUI.action?roomID=<s:property value="#room.roomID"/>"
                                                         onclick="javascript: return confirm('确认要预约吗？');">预约 </a></td>
 
