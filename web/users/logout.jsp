@@ -13,12 +13,11 @@
         <div id=Logout>
             <div id=con>
                 <div id=AwokeMsg>
-                    <img id=LogoutImg src="../Images//logout.gif" border=0> <img
-                        id=LogoutTitle src="../Images//logout1.gif" border=0>
+                    <img id=LogoutImg src="../Images//logout.gif" border=0> 您已退出系统
                 </div>
                 <div id=LogoutOperate>
                     <img src="../Images//logout2.gif" border=0> <a
-                        href="${pageContext.request.contextPath}/teachers/index.jsp">重新进入系统</a>
+                        href="${pageContext.request.contextPath}/users/Users_login.jsp">重新进入系统</a>
                     <img src="../Images//logout3.gif" border=0> <a
                         href="javascript: window.open('','_self');window.close();">关闭当前窗口</a>
                 </div>

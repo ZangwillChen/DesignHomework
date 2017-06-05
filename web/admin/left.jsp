@@ -98,24 +98,7 @@
                     </ul>
                 </div>
                 <!-- *********** -->
-                <h1 class="type">
-                    <a href="javascript:void(0)">其它设置</a>
-                </h1>
-                <div class="content">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                            <td><img src="../Images//menu_top_line.gif" width="182"
-                                     height="5" /></td>
-                        </tr>
-                    </table>
-                    <ul class="RM">
-                        <li><a href="javascript:void(0)" target="main">友情连接</a></li>
-                        <li><a href="javascript:void(0)" target="main">在线留言</a></li>
-                        <li><a href="javascript:void(0)" target="main">网站投票</a></li>
-                        <li><a href="javascript:void(0)" target="main">邮箱设置</a></li>
-                        <li><a href="javascript:void(0)" target="main">图片上传</a></li>
-                    </ul>
-                </div>
+
                 <!-- *********** -->
             </div>
         </td>

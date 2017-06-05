@@ -31,6 +31,9 @@
             <ref bean="sessionFactory" />
         </property>
     </bean>
+
+    <bean id="testAction"
+          class="com.czw.Action.TestAction" scope="prototype"/>
     <tx:annotation-driven transaction-manager="transactionManager" />
 
 

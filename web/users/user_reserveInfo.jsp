@@ -86,11 +86,11 @@
                                         <!-- 遍历开始 -->
                                         <s:iterator value="#request.roomtbList" var="roomtb">
                                             <tr>
-                                                <td><s:property value="#roomtb.roomTimeTableID" /></td>
-                                                <td><s:property value="#roomtb.roomName" /></td>
-                                                <td><s:property value="#roomtb.roomTimeTableWeek" /></td>
-                                                <td><s:property value="#roomtb.roomTime" /></td>
-                                                <td><s:property value="#roomtb.roomStatus"/> </td>
+                                                <td align="center"><s:property value="#roomtb.roomTimeTableID" /></td>
+                                                <td align="center"><s:property value="#roomtb.roomName" /></td>
+                                                <td align="center"><s:property value="#roomtb.roomTimeTableWeek" /></td>
+                                                <td align="center"><s:property value="#roomtb.roomTime" /></td>
+                                                <td align="center"><s:property value="#roomtb.roomStatus"/> </td>
                                             </tr>
                                         </s:iterator>
                                         <!-- 遍历结束 -->

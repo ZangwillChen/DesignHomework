@@ -9,7 +9,7 @@
 <body>
 <table cellpadding="0" width="100%" height="64" background="../Images//top_top_bg.gif">
     <tr valign="top">
-        <td width="70%"><a href="javascript:void(0)"><img style="border:none" src="../Images//logo.png" /></a></td>
+        <td width="70%"><a href="javascript:void(0)"><img style="border:none"  /></a></td>
         <td width="20%" style="padding-top:13px;font:15px Arial,SimSun,sans-serif;color:#FFF">管理员：${sessionScope.admin_adminName} 您好，感谢登陆！</td>
         <td style="padding-top:10px;" align="center"><a href="${pageContext.request.contextPath}/admin/main.jsp" target="main"><img style="border:none" src="../Images//index.gif" /></a></td>
         <td style="padding-top:10px;" align="center"><a href="${pageContext.request.contextPath}/admin/logout.jsp" target="_parent"> <img style="border:none" src="../Images//out.gif"/></a></td>
