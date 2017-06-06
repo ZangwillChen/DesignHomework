@@ -3,6 +3,7 @@ package com.czw.Action;
 import com.czw.Service.AnnouncementService;
 import com.czw.entity.Announcement;
 import com.opensymphony.xwork2.ModelDriven;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,8 @@ public class AnnocuncementAction extends BaseAction implements ModelDriven<Annou
     private static final long serialVersionUID = 1L;
 
     Announcement anno = new Announcement();
-    @Autowired
+
+    private static Logger logger = Logger.getLogger(Announcement.class);
     @Resource
     private AnnouncementService announcementService;
 
@@ -33,6 +35,7 @@ public class AnnocuncementAction extends BaseAction implements ModelDriven<Annou
     public String annoListUI() {
         List<Announcement> annoList = announcementService.anno_findAll();
         session.setAttribute("annoList", annoList);
+        logger.info("查看公告列表");
         return "annoListUI";
 
     }
@@ -45,6 +48,7 @@ public class AnnocuncementAction extends BaseAction implements ModelDriven<Annou
     public String annoSeeUI() {
         Announcement annoSee = announcementService.getAnnoById(anno.getAnnoID());
         session.setAttribute("annoSee",annoSee);
+        logger.info("查看公告:"+annoSee.getAnnoTitle());
         return "annoSeeUI";
     }
     /**
@@ -61,6 +65,7 @@ public class AnnocuncementAction extends BaseAction implements ModelDriven<Annou
      */
     public String annoAdd(){
         announcementService.annoAdd(anno);
+        logger.info("添加公告");
         return "toAnnoListUI";
     }
 

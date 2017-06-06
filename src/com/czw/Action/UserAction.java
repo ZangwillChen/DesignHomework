@@ -1,11 +1,13 @@
 package com.czw.Action;
 
+import com.czw.Service.RoleService;
 import com.czw.Service.UserService;
 import com.czw.entity.ReserveInfo;
 import com.czw.entity.ReserveInfoSearch;
 import com.czw.entity.Role;
 import com.czw.entity.User;
 import com.opensymphony.xwork2.ModelDriven;
+import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -26,9 +28,11 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 
     private static final long serialVersionUID = 1L;
 
+    private static Logger logger = Logger.getLogger(User.class);
 
     @Resource
     private UserService userService;
+    private RoleService roleService;
 
     private User user = new User();
 
@@ -43,6 +47,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
         if (ulogin != null){
             session.putValue("userName",ulogin.getUserName());
             session.setAttribute("ulogin",ulogin);
+            logger.info("用户"+ulogin.getUserName()+"登录");
         } else {
             return "toUserLogin";  // 返回后台登录页面
         }
@@ -168,6 +173,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
      */
     public String userAdd() {
         userService.userAdd(user);
+        logger.info("添加用户"+user.getUserName());
         return "roleSetUI";
     }
 
@@ -177,10 +183,11 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 
     public String roleSet()  {
         String userType = request.getParameter("userType");
+        Role role = roleService.getRoleByName(userType);
         User userRole = userService.getById(user.getUserID());
         System.out.println("用户名"+user.getUserName());
         System.out.println(userType);
-        //user.setUserType(role);
+        user.setUserType(role);
         userService.update(userRole);
         return "userListUI";
     }
@@ -191,6 +198,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
      * @return
      */
     public String userDelete() {
+        logger.info("删除用户"+user.getUserName());
         userService.userDeleteById(user.getUserID());
         return "toUserList";
     }

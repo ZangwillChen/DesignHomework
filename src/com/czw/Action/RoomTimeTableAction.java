@@ -6,6 +6,7 @@ import com.czw.entity.Room;
 import com.czw.entity.RoomTimeTable;
 import com.czw.entity.User;
 import com.opensymphony.xwork2.ModelDriven;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,8 @@ import java.util.List;
 public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomTimeTable> {
 
     private static final long serialVersionUID = 1L;
+
+    private static Logger logger = Logger.getLogger(RoomTimeTable.class);
 
     RoomTimeTable roomTimeTable =new RoomTimeTable();
     Room room = new Room();
@@ -73,11 +76,13 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
 
     public String roomReserveConfirm(){
         roomTimeTableService.confirmUnhandleRoom(roomTimeTable.getRoomTimeTableID(),roomtbStatus.handle);
+        logger.info("允许预约"+roomTimeTable.getRoomName() +roomTimeTable.getRoomTime());
         return "toRoomNotHandleListUI";
     }
 
     public String roomReserveDecline(){
         roomTimeTableService.confirmUnhandleRoom(roomTimeTable.getRoomTimeTableID(),roomtbStatus.finished);
+        logger.info("拒绝预约"+roomTimeTable.getRoomName() +roomTimeTable.getRoomTime());
         return "toRoomNotHandleListUI";
     }
 
@@ -88,6 +93,7 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
 
     public String roomNotHandleDelete() {   //存疑
         roomTimeTableService.RoomTimeTableDeleteById(roomTimeTable.getRoomTimeTableID());
+        logger.info("删除未处理预约"+roomTimeTable.getRoomName() +roomTimeTable.getRoomTime());
         return "toRoomNotHandleListUI";
     }
 
@@ -117,6 +123,7 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
      */
     public String roomHandleDelete(){
         roomTimeTableService.RoomTimeTableDeleteById(roomTimeTable.getRoomTimeTableID());
+        logger.info("强制取消预约"+roomTimeTable.getUser().getUserName()+roomTimeTable.getRoomName()+roomTimeTable.getRoomTime());
         return "toRoomHandleListUI";
     }
 
@@ -147,6 +154,7 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
      */
     public String roomFinishedDelete() {
         roomTimeTableService.RoomTimeTableDeleteById(roomTimeTable.getRoomTimeTableID());
+        logger.info("已完成预约删除"+roomTimeTable.getUser().getUserName()+roomTimeTable.getRoomName()+roomTimeTable.getRoomTime());
         return "toRoomFinishedListUI";
     }
     long reserveID;
@@ -185,6 +193,7 @@ public class RoomTimeTableAction extends BaseAction implements ModelDriven<RoomT
         }
 
         roomTimeTableService.save(roomTimeTable);
+        logger.info("预约房间"+roomTimeTable.getUser().getUserName()+roomTimeTable.getRoomName()+roomTimeTable.getRoomTime());
         return "roomListByUserUI";
     }
 

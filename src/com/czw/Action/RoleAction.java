@@ -59,6 +59,12 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
         return "roleEditUI";
     }
 
+    public String roleEdit() {
+        Role editRole = roleService.getById(role.getRoleID());
+
+
+        return "roleListUI";
+    }
 
     /*
     * @brief 删除用户类型

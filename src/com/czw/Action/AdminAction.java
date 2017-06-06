@@ -11,6 +11,7 @@ package com.czw.Action;
         import com.czw.Service.AdminService;
         import com.opensymphony.xwork2.ActionContext;
         import com.opensymphony.xwork2.ModelDriven;
+        import org.apache.log4j.Logger;
 
 /**
  * Created by chenzhaowen on 2017/5/16.
@@ -24,6 +25,7 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
 
     private Admin admin = new Admin();
 
+    private static Logger logger = Logger.getLogger(Admin.class);
     /**
      * @brief 业务逻辑对象
      */
@@ -46,6 +48,8 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
         if (loginAdmin != null){
             session.putValue("adminName",loginAdmin.getAdminName());
             session.setAttribute("loginAdmin",loginAdmin);
+            logger.info("管理员"+loginAdmin.getAdminName()+"登陆");
+
         } else {
             return "adminLoginUI";  // 返回后台登录页面
         }
@@ -92,7 +96,7 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
         if (adminList != null && adminList.size() >0){
             session.setAttribute("adminList",adminList);
         }
-
+        logger.info("查看管理员列表");
         return "adminListUI";
     }
 
@@ -102,6 +106,7 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
      * @throws Exception
      */
     public String adminDelete() throws Exception {
+        logger.info("删除管理员"+admin.getAdminID());
         adminService.admin_delete(admin.getAdminID());
         return "adminListUI";
     }
@@ -113,6 +118,7 @@ public class AdminAction extends BaseAction implements ModelDriven<Admin> {
      */
     public String adminAdd() throws Exception {
         adminService.admin_add(admin);
+        logger.info("添加管理员"+admin.getAdminID());
         return "toAdminListUI";
     }
 
