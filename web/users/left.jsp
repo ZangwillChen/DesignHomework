@@ -60,8 +60,8 @@
                         </tr>
                     </table>
                     <ul class="RM">
-                        <li><a href="./user_userReserveRoomUI.action" target="main">预约教室</a></li>
-                        <li><a href="../admin/roomttable_roomHandleListUI.action" target="main">预约信息查看</a></li>
+                        <!--<li><a href="./user_userReserveRoomUI.action" target="main">预约教室</a></li>-->
+                        <li><a href="./roomttb_roomHandleListUI.action" target="main">预约信息查看</a></li>
                         <li><a href="./roomttb_userReserveInfoUI.action" target="main">我的预约</a></li>
                 </div>
 
@@ -90,7 +90,7 @@
                         </tr>
                     </table>
                     <ul class="RM">
-                        <li><a href="/admin/anno_annoListUI.action" target="main">查看公告</a></li>
+                        <li><a href="./useranno_annoListUI.action" target="main">查看公告</a></li>
                     </ul>
                 </div>
                 <!-- *********** -->

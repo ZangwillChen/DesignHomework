@@ -90,9 +90,7 @@
                                                 <td align="center"><s:property value="#user.userName" /></td>
                                                 <td align="center"><s:property value="#user.userPhone" /></td>
                                                 <td align="center"><s:property value="#user.userEmail" /></td>
-                                                <td align="center"><a
-                                                        href="<%=path%>/admin/user_roleSetUI.action?userID=<s:property value=" #user.userID"/>"
-                                                        onclick="javascript: return confirm('真的要修改用户类型吗？');">修改用户类型</a>
+                                                <td align="center">
                                                     <a
                                                         href="<%=path%>/admin/user_userDelete.action?userID=<s:property value=" #user.userID"/>"
                                                         onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>

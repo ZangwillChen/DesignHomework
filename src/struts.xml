@@ -117,6 +117,13 @@
             <result name="roomReserveUI">/users/user_reserve.jsp</result>
             <result name="roomListByUserUI">/users/room_list.jsp</result>
             <result name="userReserveInfoUI">/users/user_reserveInfo.jsp</result>
+            <result name="roomHandleListUI">/users/roomtimetablehandl_list.jsp</result>
+        </action>
+    </package>
+
+    <package name="userAnno" namespace="/users" extends="default">
+        <action name="useranno_*" class="AnncouncementAction" method="{1}">
+            <result name="annoListUI" >/users/anno_list.jsp</result>
         </action>
     </package>
 

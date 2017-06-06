@@ -18,7 +18,7 @@
             <table width="100%" height="31" border="0" cellpadding="0"
                    cellspacing="0" background="./../Images//content_bg.gif">
                 <tr>
-                    <td height="31"><div class="title1">管理员列表</div></td>
+                    <td height="31"><div class="title1">用户列表</div></td>
                 </tr>
             </table>
         </td>
@@ -45,7 +45,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看用户类型列表！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看待处理预约列表！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -70,37 +70,32 @@
                                 <td colspan="2">
                                     <table class="defaultlist">
                                         <col width="10%">
-                                        <col width="10%">
-                                        <col width="20%">
-                                        <col width="20%">
+                                        <col width="15%">
+                                        <col width="15%">
+                                        <col width="15%">
+                                        <col width="15%">
+                                        <col width="15%">
                                         <col width="15%">
                                         <tr class="title">
-                                            <td>用户类型ID</td>
-                                            <td>用户类型名</td>
-                                            <td>权限</td>
-                                            <td>操作</td>
+                                            <td>时间表ID</td>
+                                            <td>借教室人</td>
+                                            <td>教室</td>
+                                            <td>周次</td>
+                                            <td>时间</td>
                                         </tr>
                                         <!-- 遍历开始 -->
-                                        <s:iterator value="#session.roleList" var="role">
+                                        <s:iterator value="#request.roomtbList" var="roomtb">
                                             <tr>
-                                                <td align="center"><s:property value="#role.roleID" /></td>
-                                                <td align="center"><s:property value="#role.roleName" /></td>
-                                                <td align="center"><s:property value="#role.permission" /></td>
-                                                <td align="center"><a
-                                                        href="<%=path%>/admin/role_roleEditUI.action?roleID=<s:property value=" #role.roleID"/>"
-                                                        onclick="javascript: return confirm('真的要修改吗？');">修改</a></td>
-                                                <a
-                                                        href="<%=path%>/admin/role_roleDelete.action?roleID=<s:property value=" #role.roleID"/>"
-                                                        onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
+                                                <td align="center"><s:property value="#roomtb.roomTimeTableID" /></td>
+                                                <td align="center"><s:property value="#roomtb.user.userName" /></td>
+                                                <td align="center"><s:property value="#roomtb.roomName" /></td>
+                                                <td align="center"><s:property value="#roomtb.roomTimeTableWeek" /></td>
+                                                <td align="center"><s:property value="#roomtb.roomTime" /></td>
+
                                             </tr>
                                         </s:iterator>
                                         <!-- 遍历结束 -->
                                     </table> <!-- 其他功能超链接 -->
-                                    <div id="TableTail">
-                                        <div id="TableTail_inside">
-                                            <input type="button" onclick="location.href='role_add.jsp'" value="新建"/>
-                                        </div>
-                                    </div>
                                 </td>
                             </tr>
                         </table>

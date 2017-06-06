@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8"%> <%@ taglib prefix="s" uri="/struts-tags"%>
-<%String path = request.getContextPath();%>
+         pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+    String path = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +21,7 @@
             <table width="100%" height="31" border="0" cellpadding="0"
                    cellspacing="0" background="./../Images//content_bg.gif">
                 <tr>
-                    <td height="31"><div class="title1">管理员列表</div></td>
+                    <td height="31"><div class="title1">公告列表</div></td>
                 </tr>
             </table>
         </td>
@@ -45,7 +48,7 @@
                             <tr>
                                 <td width="100" align="center"><img
                                         src="../Images//mime.gif" /></td>
-                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看用户类型列表！</h3></td>
+                                <td valign="bottom"><h3 style="letter-spacing: 1px;">在这里，您可以查看公告列表！</h3></td>
                             </tr>
                         </table>
                     </td>
@@ -70,37 +73,31 @@
                                 <td colspan="2">
                                     <table class="defaultlist">
                                         <col width="10%">
-                                        <col width="10%">
+                                        <col width="30%">
                                         <col width="20%">
                                         <col width="20%">
-                                        <col width="15%">
+                                        <col width="20%">
                                         <tr class="title">
-                                            <td>用户类型ID</td>
-                                            <td>用户类型名</td>
-                                            <td>权限</td>
-                                            <td>操作</td>
+                                            <td>公告ID</td>
+                                            <td>公告标题</td>
+                                            <td>公告人</td>
+                                            <td>公告时间</td>
+                                            <td>公告操作</td>
                                         </tr>
                                         <!-- 遍历开始 -->
-                                        <s:iterator value="#session.roleList" var="role">
+                                        <s:iterator value="#session.annoList" var="anno">
                                             <tr>
-                                                <td align="center"><s:property value="#role.roleID" /></td>
-                                                <td align="center"><s:property value="#role.roleName" /></td>
-                                                <td align="center"><s:property value="#role.permission" /></td>
-                                                <td align="center"><a
-                                                        href="<%=path%>/admin/role_roleEditUI.action?roleID=<s:property value=" #role.roleID"/>"
-                                                        onclick="javascript: return confirm('真的要修改吗？');">修改</a></td>
-                                                <a
-                                                        href="<%=path%>/admin/role_roleDelete.action?roleID=<s:property value=" #role.roleID"/>"
-                                                        onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
+                                                <td align="center"><s:property value="#anno.annoID" /></td>
+                                                <td align="center"><s:property value="#anno.annoTitle" /></td>
+                                                <td align="center"><s:property value="#anno.annoPerson" /></td>
+                                                <td align="center"><s:property value="#anno.annoTime" /></td>
+                                                    <td align="center"><a href="<%=path%>/admin/anno_annoSeeUI.action?annoID=<s:property value=" #anno.annoID"/>"
+                                                       onclick="javascript: return confirm('需要查看吗？');">查看</a></td>
                                             </tr>
                                         </s:iterator>
                                         <!-- 遍历结束 -->
                                     </table> <!-- 其他功能超链接 -->
-                                    <div id="TableTail">
-                                        <div id="TableTail_inside">
-                                            <input type="button" onclick="location.href='role_add.jsp'" value="新建"/>
-                                        </div>
-                                    </div>
+
                                 </td>
                             </tr>
                         </table>
